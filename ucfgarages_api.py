@@ -5,12 +5,6 @@ from fastapi import FastAPI, Response
 
 from query_database import *
 
-if (os.environ.get("DB_PASS") == None):
- from dotenv import load_dotenv
- ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
- load_dotenv(os.path.join(ROOT_DIR, 'config', 'conf', '.env'))
-
-
 app = FastAPI()
 
 my_database = mysql.connector.connect(
@@ -21,10 +15,7 @@ my_database = mysql.connector.connect(
     database=os.environ.get("DB_NAME"),
 )
 
-
-
 my_cursor = my_database.cursor()
-
 
 
 # all data based on parameters to return as json file.
@@ -38,7 +29,6 @@ async def get_alldb_data():
         indent=3,
         separators=(", ", ": "),
     ).encode("utf-8"), status_code=200, media_type="application/json")
-
 
 
 # all today data  to return as json file.
@@ -104,4 +94,3 @@ async def get_year_month_day_data(year, month, day):
         indent=3,
         separators=(", ", ": "),
     ).encode("utf-8"), status_code=200, media_type="application/json")
-
