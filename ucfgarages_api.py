@@ -8,11 +8,11 @@ from query_database import *
 app = FastAPI()
 
 my_database = mysql.connector.connect(
-    host=os.environ.get("DB_HOST"),
-    port=os.environ.get("DB_PORT"),
-    user=os.environ.get("DB_USER"),
-    password=os.environ.get("DB_PASS"),
-    database=os.environ.get("DB_NAME"),
+    host=os.environ['DB_HOST'],
+    port=os.environ['DB_PORT'],
+    user=os.environ['DB_USER'],
+    password=os.environ['DB_PASSWORD'],
+    database=os.environ['DB_NAME']
 )
 
 my_cursor = my_database.cursor()
