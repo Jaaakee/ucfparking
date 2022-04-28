@@ -1,3 +1,6 @@
+uvicorn
+gunicorn
+uvloop
 mysql-connector-python
 fastapi
 sentry-sdk
