@@ -56,7 +56,7 @@ def main():
             host=os.environ['DB_HOST'],
             port=os.environ['DB_PORT'],
             user=os.environ['DB_USER'],
-            password=os.environ['DB_PASSWORD'],
+            password=os.environ['DB_PASS'],
             database=os.environ['DB_NAME']
         )
     except mysql.connector.DatabaseError as e:
