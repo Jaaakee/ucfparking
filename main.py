@@ -1,4 +1,5 @@
 import json
+import os
 import re
 from datetime import datetime
 
@@ -52,13 +53,14 @@ def get_garage_data(page):
 def main():
     try:
         mydb = mysql.connector.connect(
-            host="DB_HOST",
-            port="DB_PORT",
-            user="DB_USER",
-            password="DB_PASSWORD",
-            database="DB_NAME",
+            host=os.environ['DB_HOST'],
+            port=os.environ['DB_PORT'],
+            user=os.environ['DB_USER'],
+            password=os.environ['DB_PASSWORD'],
+            database=os.environ['DB_NAME']
         )
-    except mysql.connector.DatabaseError as e: capture_message(e)
+    except mysql.connector.DatabaseError as e:
+        capture_message(e)
 
     try:
         page = requests.get("https://secure.parking.ucf.edu/GarageCount/").content
