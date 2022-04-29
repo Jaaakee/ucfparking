@@ -1,12 +1,12 @@
 import json
 import re
 from datetime import datetime
-
+import os
 import mysql.connector
 import requests
 from bs4 import BeautifulSoup
 from sentry_sdk import capture_message
-
+from get_env_variables import *
 
 # function to parse and get all garage data
 def get_garage_data(page):
@@ -51,12 +51,13 @@ def get_garage_data(page):
 
 def main():
     try:
+
         mydb = mysql.connector.connect(
-            host="DB_HOST",
-            port="DB_PORT",
-            user="DB_USER",
-            password="DB_PASSWORD",
-            database="DB_NAME",
+            host=os.environ['DB_HOST'],
+            port=os.environ['DB_PORT'],
+            user=os.environ['DB_USER'],
+            password=os.environ['DB_PASS'],
+            database=os.environ['DB_NAME']
         )
     except mysql.connector.DatabaseError as e: capture_message(e)
 
