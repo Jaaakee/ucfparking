@@ -6,24 +6,17 @@ from fastapi import FastAPI, Response
 from query_database import *
 from get_env_variables import *
 
-
 app = FastAPI()
 
+my_database = mysql.connector.connect(
+    host=os.environ['DB_HOST'],
+    port=os.environ['DB_PORT'],
+    user=os.environ['DB_USER'],
+    password=os.environ['DB_PASS'],
+    database=os.environ['DB_NAME']
+)
 
-def connect_to_db(): # function connect to database
-    my_database = mysql.connector.connect(
-        host=os.environ.get("DB_HOST"),
-        port=os.environ.get("DB_PORT"),
-        user=os.environ.get("DB_USER"),
-        password=os.environ.get("DB_PASS"),
-        database=os.environ.get("DB_NAME"),
-    )
-    return my_database
-
-
-
-
-
+my_cursor = my_database.cursor()
 
 
 # all data based on parameters to return as json file.
@@ -42,7 +35,6 @@ async def get_alldb_data():
         indent=3,
         separators=(", ", ": "),
     ).encode("utf-8"), status_code=200, media_type="application/json")
-
 
 
 # all today data  to return as json file.
@@ -152,4 +144,3 @@ async def get_year_month_day_data(year, month, day):
         indent=3,
         separators=(", ", ": "),
     ).encode("utf-8"), status_code=200, media_type="application/json")
-
