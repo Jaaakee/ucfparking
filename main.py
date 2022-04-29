@@ -97,6 +97,8 @@ def main():
     val = appendarray
     cursor.execute(sql, val)
     mydb.commit()
+    cursor.close()
+    mydb.close()
 
 
 # Run Program
