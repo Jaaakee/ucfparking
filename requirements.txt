@@ -5,3 +5,5 @@ uvloop
 mysql-connector-python
 fastapi
 sentry-sdk
+requests
+beautifulsoup4
