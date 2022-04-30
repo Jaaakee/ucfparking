@@ -4,7 +4,6 @@ import mysql.connector
 from fastapi import FastAPI, Response
 
 from query_database import *
-from get_env_variables import *
 
 app = FastAPI()
 

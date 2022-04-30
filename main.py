@@ -1,13 +1,14 @@
+import os
 import json
-import os
 import re
-from datetime import datetime
-import os
 import mysql.connector
 import requests
+import sentry_sdk
+
 from bs4 import BeautifulSoup
+from datetime import datetime
 from sentry_sdk import capture_message
-from get_env_variables import *
+
 
 # function to parse and get all garage data
 def get_garage_data(page):
@@ -28,11 +29,7 @@ def get_garage_data(page):
         spaces_available = int(column.find_all("td")[1].text.split("/")[0].strip())
         total_capacity = int(column.find_all("td")[1].text.split("/")[1].strip())
         percentage = int(
-            re.search("(?<=percent:)(.*)(?=[\n\r])", str(column.find_all("td")[2]))
-                .group()
-                .strip()
-                .replace(",", "")
-        )
+            re.search("(?<=percent:)(.*)(?=[\n\r])", str(column.find_all("td")[2])).group().strip().replace(",", ""))
 
         if percentage < 0:
             percentage = 0
@@ -51,31 +48,35 @@ def get_garage_data(page):
 
 
 def main():
-    try:
+    db = None
+    sentry_sdk.init(os.environ['SENTRY_URL'], traces_sample_rate=1.0)
 
-        mydb = mysql.connector.connect(
+    try:
+        db = mysql.connector.connect(
             host=os.environ['DB_HOST'],
             port=os.environ['DB_PORT'],
             user=os.environ['DB_USER'],
             password=os.environ['DB_PASS'],
             database=os.environ['DB_NAME']
         )
-    except mysql.connector.DatabaseError as e:
-        capture_message(e)
+    except mysql.connector.DatabaseError:
+        capture_message("Error: Could not establish connection to database.")
 
+    page = None
     try:
         page = requests.get("https://secure.parking.ucf.edu/GarageCount/").content
-        print("Successful connection to UCF Parking Information website.")
     except requests.RequestException or requests.ConnectionError:
         capture_message("Error: Could not connect to the internet/webpage.")
 
-    garage_data = get_garage_data(page)
-    current_date_and_time = datetime.now().strftime("%Y-%m-%d %H:%M")
+    garage_data = None
+    if page:
+        garage_data = get_garage_data(page)
 
+    current_date_and_time = datetime.now().strftime("%Y-%m-%d %H:%M")
     with open("data.txt", "w") as json_file:
         json.dump(garage_data, json_file, indent=4)
 
-    cursor = mydb.cursor()
+    cursor = db.cursor()
 
     # check if table 'ucf_parking' exists, if it doesn't, create one
     cursor.execute("""CREATE TABLE IF NOT EXISTS parking_data (date_and_time DATETIME, 
@@ -86,7 +87,7 @@ def main():
         garage_h_spaces_available VARCHAR(40), garage_h_total_capacity VARCHAR(40), garage_h_percent_full VARCHAR(40),
         garage_i_spaces_available VARCHAR(40), garage_i_total_capacity VARCHAR(40),garage_i_percent_full VARCHAR(40),
         libra_garage_spaces_available VARCHAR(40), libra_garage_total_capacity VARCHAR(40), libra_garage_percent_full VARCHAR(40))""")
-    mydb.commit()
+    db.commit()
     appendarray = [current_date_and_time]
 
     for obj in garage_data:
@@ -98,9 +99,9 @@ def main():
     sql = "INSERT INTO parking_data VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
     val = appendarray
     cursor.execute(sql, val)
-    mydb.commit()
+    db.commit()
     cursor.close()
-    mydb.close()
+    db.close()
 
 
 # Run Program
