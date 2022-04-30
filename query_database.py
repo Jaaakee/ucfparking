@@ -1,5 +1,4 @@
 import datetime
-import json
 
 
 class DataQueryExtractor():
@@ -8,8 +7,7 @@ class DataQueryExtractor():
         self.my_cursor = my_cursor
 
     def get_last_week_data(self):
-
-        query = ("SELECT MAX(date_and_time) FROM parking_data ")
+        query = "SELECT MAX(date_and_time) FROM parking_data "
         self.my_cursor.execute(query)
         for date in self.my_cursor:
             max_date = date[0]
@@ -42,6 +40,8 @@ class DataQueryExtractor():
             }
 
             cnt += 1
+
+
 
             garage_a_spaces_available = data[1]
             garage_a_total_capacity = data[2]
@@ -119,9 +119,6 @@ class DataQueryExtractor():
 
         # self.my_cursor.close()
         # self.my_database.close()
-
-        with open('Output/weekly.json', 'w') as f:
-            json.dump(weekly_data_queried, f, indent=3)
 
         return weekly_data_queried
 
@@ -222,9 +219,6 @@ class DataQueryExtractor():
 
         # self.my_cursor.close()
         # self.my_database.close()
-
-        with open('Output/last.json', 'w') as f:
-            json.dump(garage_row_queried, f, indent=3)
 
         return garage_row_queried
 
@@ -336,9 +330,6 @@ class DataQueryExtractor():
         # self.my_cursor.close()
         # self.my_database.close()
 
-        with open('Output/yearly.json', 'w') as f:  # ß
-            json.dump(yearly_data_queried, f, indent=3)
-
         return yearly_data_queried
 
     def get_yearly_monthly_data(self, year, month):
@@ -449,9 +440,6 @@ class DataQueryExtractor():
         # self.my_cursor.close()
         # self.my_database.close()
 
-        with open('Output/yearly_monthly.json', 'w') as f:
-            json.dump(yearly_monthly_data_queried, f, indent=3)
-
         return yearly_monthly_data_queried
 
     def get_yearly_monthly_daily_data(self, year, month, the_day):
@@ -558,18 +546,15 @@ class DataQueryExtractor():
             yearly_monthly_daily_data_queried['data'].append(garage_row_queried)
 
         yearly_monthly_daily_data_queried['count'] = cnt
-        #
+
         # self.my_cursor.close()
         # self.my_database.close()
-
-        with open('Output/yearly_monthly_daily.json', 'w') as f:
-            json.dump(yearly_monthly_daily_data_queried, f, indent=3)
 
         return yearly_monthly_daily_data_queried
 
     def get_all_data(self):
 
-        query = ("SELECT * FROM parking_data ")
+        query = "SELECT * FROM parking_data "
         self.my_cursor.execute(query)
 
         all_data_queried = {
@@ -673,9 +658,6 @@ class DataQueryExtractor():
 
         # self.my_cursor.close()
         # self.my_database.close()
-
-        with open('Output/all.json', 'w') as f:
-            json.dump(all_data_queried, f, indent=3)
 
         return all_data_queried
 
@@ -790,8 +772,5 @@ class DataQueryExtractor():
 
         # self.my_cursor.close()
         # self.my_database.close()
-
-        with open('Output/today.json', 'w') as f:
-            json.dump(all_today_data_queried, f, indent=3)
 
         return all_today_data_queried
