@@ -1,13 +1,12 @@
 import json
-import os
 import re
 from datetime import datetime
-import os
 import mysql.connector
 import requests
 from bs4 import BeautifulSoup
 from sentry_sdk import capture_message
-from get_env_variables import *
+import os
+
 
 # function to parse and get all garage data
 def get_garage_data(page):
@@ -27,12 +26,7 @@ def get_garage_data(page):
         garage_name = column.find_all("td")[0].text.strip().replace("Garage ", "")
         spaces_available = int(column.find_all("td")[1].text.split("/")[0].strip())
         total_capacity = int(column.find_all("td")[1].text.split("/")[1].strip())
-        percentage = int(
-            re.search("(?<=percent:)(.*)(?=[\n\r])", str(column.find_all("td")[2]))
-                .group()
-                .strip()
-                .replace(",", "")
-        )
+        percentage = int(re.search("(?<=percent:)(.*)(?=[\n\r])", str(column.find_all("td")[2])).group().strip().replace(",", ""))
 
         if percentage < 0:
             percentage = 0
@@ -52,7 +46,6 @@ def get_garage_data(page):
 
 def main():
     try:
-
         mydb = mysql.connector.connect(
             host=os.environ['DB_HOST'],
             port=os.environ['DB_PORT'],
