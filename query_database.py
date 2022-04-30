@@ -1,13 +1,13 @@
 import datetime
 
 
-class DataQueryExtractor():
+class DataQueryExtractor:
     def __init__(self, my_database, my_cursor):
         self.my_database = my_database
         self.my_cursor = my_cursor
 
     def get_last_week_data(self):
-        query = "SELECT MAX(date_and_time) FROM parking_data "
+        query = "SELECT MAX(date_and_time) FROM parking_data"
         self.my_cursor.execute(query)
         for date in self.my_cursor:
             max_date = date[0]
