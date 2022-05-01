@@ -1,6 +1,6 @@
 import json
 import os
-
+from get_env_var import *
 import mysql.connector
 from fastapi import FastAPI, Response
 
