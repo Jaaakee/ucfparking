@@ -8,7 +8,7 @@ import sentry_sdk
 from bs4 import BeautifulSoup
 from datetime import datetime
 from sentry_sdk import capture_message
-
+from get_env_var import *
 
 # function to parse and get all garage data
 def get_garage_data(page):
