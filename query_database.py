@@ -1,6 +1,7 @@
 import datetime
 
 
+
 class DataQueryExtractor:
     def __init__(self, my_database, my_cursor):
         self.my_database = my_database
