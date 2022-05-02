@@ -49,7 +49,7 @@ def get_garage_data(page):
 
 def main():
     db = None
-    #sentry_sdk.init(os.environ['SENTRY_URL'], traces_sample_rate=1.0)
+    sentry_sdk.init(os.environ['SENTRY_URL'], traces_sample_rate=1.0)
 
     try:
         db = mysql.connector.connect(
@@ -73,8 +73,8 @@ def main():
         garage_data = get_garage_data(page)
 
     current_date_and_time = datetime.now().strftime("%Y-%m-%d %H:%M")
-    with open("data.txt", "w") as json_file:
-        json.dump(garage_data, json_file, indent=4)
+    # with open("data.txt", "w") as json_file:
+    #     json.dump(garage_data, json_file, indent=4)
 
     cursor = db.cursor()
 
