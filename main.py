@@ -49,7 +49,7 @@ def get_garage_data(page):
 
 def main():
     db = None
-    sentry_sdk.init(os.environ['SENTRY_URL'], traces_sample_rate=1.0)
+    #sentry_sdk.init(os.environ['SENTRY_URL'], traces_sample_rate=1.0)
 
     try:
         db = mysql.connector.connect(
