@@ -34,9 +34,7 @@ class DataQueryExtractor:
 
     def get_last_week_data(self):
         week_ago_date = datetime.datetime.now() - datetime.timedelta(days=7)
-        query = ("SELECT * FROM parking_data "
-                 "WHERE date_and_time > %s"
-                 "ORDER BY date_and_time DESC")
+        query = "SELECT * FROM parking_data WHERE date_and_time > %s ORDER BY date_and_time DESC"
         self.my_cursor.execute(query, [week_ago_date])
 
         weekly_data_queried = {
@@ -55,14 +53,13 @@ class DataQueryExtractor:
 
 
     def get_last_data(self):
-        query = ("SELECT MAX(date_and_time) FROM parking_data ")
+        query = "SELECT MAX(date_and_time) FROM parking_data"
         self.my_cursor.execute(query)
         for date in self.my_cursor:
             max_date = date[0]
 
 
-        query = ("SELECT * FROM parking_data "
-                 "WHERE date_and_time = %s")
+        query = "SELECT * FROM parking_data WHERE date_and_time = %s"
         self.my_cursor.execute(query, [max_date])
 
         cnt = 0
@@ -76,9 +73,7 @@ class DataQueryExtractor:
 
     def get_yearly_data(self, year):
 
-        query = ("SELECT * FROM parking_data "
-                 "WHERE EXTRACT(YEAR FROM date_and_time) = %s"
-                 "ORDER BY date_and_time DESC")
+        query = "SELECT * FROM parking_data WHERE EXTRACT(YEAR FROM date_and_time) = %s ORDER BY date_and_time DESC"
         self.my_cursor.execute(query, [year])
 
         yearly_data_queried = {
@@ -99,9 +94,7 @@ class DataQueryExtractor:
 
     def get_yearly_monthly_data(self, year, month):
 
-        query = ("SELECT * FROM parking_data "
-                 "WHERE EXTRACT(YEAR FROM date_and_time) = %s AND EXTRACT(MONTH FROM date_and_time) = %s"
-                 "ORDER BY date_and_time DESC")
+        query = "SELECT * FROM parking_data WHERE EXTRACT(YEAR FROM date_and_time) = %s AND EXTRACT(MONTH FROM date_and_time) = %s ORDER BY date_and_time DESC"
         self.my_cursor.execute(query, [year, month])
 
         yearly_monthly_data_queried = {
@@ -122,9 +115,7 @@ class DataQueryExtractor:
 
     def get_yearly_monthly_daily_data(self, year, month, the_day):
 
-        query = ("SELECT * FROM parking_data "
-                 "WHERE EXTRACT(YEAR FROM date_and_time) = %s AND EXTRACT(MONTH FROM date_and_time) = %s AND EXTRACT(DAY FROM date_and_time) = %s"
-                 "ORDER BY date_and_time DESC")
+        query = "SELECT * FROM parking_data WHERE EXTRACT(YEAR FROM date_and_time) = %s AND EXTRACT(MONTH FROM date_and_time) = %s AND EXTRACT(DAY FROM date_and_time) = %s ORDER BY date_and_time DESC"
         self.my_cursor.execute(query, [year, month, the_day])
 
         yearly_monthly_daily_data_queried = {
@@ -146,8 +137,7 @@ class DataQueryExtractor:
 
     def get_all_data(self):
 
-        query = ("SELECT * FROM parking_data "
-                 "ORDER BY date_and_time DESC")
+        query = "SELECT * FROM parking_data ORDER BY date_and_time DESC"
         self.my_cursor.execute(query)
 
         all_data_queried = {
@@ -173,9 +163,7 @@ class DataQueryExtractor:
         year = today_date.split('-')[0]
         month = today_date.split('-')[1]
         day = today_date.split('-')[2]
-        query = ("SELECT * FROM parking_data "
-                 "WHERE EXTRACT(YEAR FROM date_and_time) = %s AND EXTRACT(MONTH FROM date_and_time) = %s AND EXTRACT(DAY FROM date_and_time) = %s"
-                 "ORDER BY date_and_time DESC")
+        query = "SELECT * FROM parking_data WHERE EXTRACT(YEAR FROM date_and_time) = %s AND EXTRACT(MONTH FROM date_and_time) = %s AND EXTRACT(DAY FROM date_and_time) = %s ORDER BY date_and_time DESC"
         self.my_cursor.execute(query, [year, month, day])
 
         all_today_data_queried = {
