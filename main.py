@@ -1,5 +1,3 @@
-import os
-import json
 import re
 import mysql.connector
 import requests
@@ -9,6 +7,7 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 from sentry_sdk import capture_message
 from get_env_var import *
+
 
 # function to parse and get all garage data
 def get_garage_data(page):
@@ -44,7 +43,9 @@ def get_garage_data(page):
             }
         }
         json_data.append(obj)
+
     return json_data
+
 
 
 def main():
@@ -62,6 +63,7 @@ def main():
     except mysql.connector.DatabaseError:
         capture_message("Error: Could not establish connection to database.")
 
+
     page = None
     try:
         page = requests.get("https://secure.parking.ucf.edu/GarageCount/").content
@@ -73,9 +75,6 @@ def main():
         garage_data = get_garage_data(page)
 
     current_date_and_time = datetime.now().strftime("%Y-%m-%d %H:%M")
-    # with open("data.txt", "w") as json_file:
-    #     json.dump(garage_data, json_file, indent=4)
-
     cursor = db.cursor()
 
     # check if table 'ucf_parking' exists, if it doesn't, create one
@@ -97,12 +96,11 @@ def main():
         appendarray.append(vals["Percent Full"])
 
     sql = "INSERT INTO parking_data VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
-    val = appendarray
-    cursor.execute(sql, val)
+    cursor.execute(sql, appendarray)
     db.commit()
     cursor.close()
     db.close()
 
 
-# Run Program
+# Run Program : get garage data and store it in the database
 main()

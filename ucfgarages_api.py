@@ -1,5 +1,4 @@
 import json
-import os
 from get_env_var import *
 import mysql.connector
 from fastapi import FastAPI, Response
@@ -42,6 +41,8 @@ def get_data(data, year=None, month=None, day=None):
 
     if content:
         return content
+
+
 
 
 # Get the last data row from the database.
