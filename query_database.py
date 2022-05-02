@@ -3,21 +3,10 @@ import datetime
 
 def convert_row_into_json(data,cnt):
     date_of_row = data[0]
-    day = (str(date_of_row).split('-')[2]).split(' ')[0]
-    month = (str(date_of_row).split('-')[1])
-    year = (str(date_of_row).split('-')[0])
-    try:
-        week_number = datetime.datetime.strptime(date_of_row, '%Y-%m-%d %H:%M:%S').isocalendar()[1]
-    except:
-        week_number = datetime.datetime.strptime(date_of_row, '%Y-%m-%d %H:%M').isocalendar()[1]
 
     garage_row_queried = {
-        'date': str(date_of_row),
-        'day': day,
+        'date_and_time': str(date_of_row),
         "garages": [],
-        "month": month,
-        "week": week_number,
-        "year": year
     }
 
     cnt += 1
