@@ -62,7 +62,6 @@ class DataQueryExtractor:
         return garage_row_queried
 
     def get_yearly_data(self, year):
-
         query = "SELECT * FROM parking_data WHERE EXTRACT(YEAR FROM date_and_time) = %s ORDER BY date_and_time DESC"
         self.my_cursor.execute(query, [year])
 
@@ -81,7 +80,6 @@ class DataQueryExtractor:
         return yearly_data_queried
 
     def get_yearly_monthly_data(self, year, month):
-
         query = "SELECT * FROM parking_data WHERE EXTRACT(YEAR FROM date_and_time) = %s AND EXTRACT(MONTH FROM date_and_time) = %s ORDER BY date_and_time DESC"
         self.my_cursor.execute(query, [year, month])
 
@@ -100,7 +98,6 @@ class DataQueryExtractor:
         return yearly_monthly_data_queried
 
     def get_yearly_monthly_daily_data(self, year, month, the_day):
-
         query = "SELECT * FROM parking_data WHERE EXTRACT(YEAR FROM date_and_time) = %s AND EXTRACT(MONTH FROM date_and_time) = %s AND EXTRACT(DAY FROM date_and_time) = %s ORDER BY date_and_time DESC"
         self.my_cursor.execute(query, [year, month, the_day])
 
@@ -119,7 +116,6 @@ class DataQueryExtractor:
         return yearly_monthly_daily_data_queried
 
     def get_all_data(self):
-
         query = "SELECT * FROM parking_data ORDER BY date_and_time DESC"
         self.my_cursor.execute(query)
 

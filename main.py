@@ -21,7 +21,7 @@ def get_garage_data(page):
             garages_table = table.find_all("tr")[5:-1]
             break
         else:
-            capture_message("\nError: table not found.")
+            capture_message("Error: Database table not found.")
 
     for column in garages_table:
         garage_name = column.find_all("td")[0].text.strip().replace("Garage ", "")
@@ -47,7 +47,6 @@ def get_garage_data(page):
     return json_data
 
 
-
 def main():
     db = None
     sentry_sdk.init(os.environ['SENTRY_URL'], traces_sample_rate=1.0)
@@ -63,12 +62,11 @@ def main():
     except mysql.connector.DatabaseError:
         capture_message("Error: Could not establish connection to database.")
 
-
     page = None
     try:
         page = requests.get("https://secure.parking.ucf.edu/GarageCount/").content
     except requests.RequestException or requests.ConnectionError:
-        capture_message("Error: Could not connect to the internet/webpage.")
+        capture_message("Error: Could not connect to the UCF .")
 
     garage_data = None
     if page:

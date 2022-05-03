@@ -1,5 +1,4 @@
 from apscheduler.schedulers.blocking import BlockingScheduler
-
 from main import main
 
 sched = BlockingScheduler()
