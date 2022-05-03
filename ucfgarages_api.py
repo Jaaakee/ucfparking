@@ -43,8 +43,6 @@ def get_data(data, year=None, month=None, day=None):
         return content
 
 
-
-
 # Get the last data row from the database.
 @app.get("/")
 async def get_last_data():
