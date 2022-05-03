@@ -121,20 +121,22 @@ class DataQueryExtractor:
     def get_all_data(self):
         query = "SELECT * FROM parking_data ORDER BY date_and_time DESC"
         self.my_cursor.execute(query)
-
+        result = self.my_cursor.fetchall()
         all_data_queried = {
             'count': 0,
-            'data': [],
+            'data': [0]*len(result),
         }
 
         cnt = 0
-        for data in self.my_cursor:
+
+        for index, data in enumerate(result):
             garage_row_queried, cnt = row_formatting(data, cnt)
-            all_data_queried['data'].append(garage_row_queried)
+            all_data_queried['data'][index] = garage_row_queried
 
         all_data_queried['count'] = cnt
 
         return all_data_queried
+
 
     def get_today_data(self):
         today_date = datetime.datetime.now()

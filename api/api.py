@@ -1,9 +1,9 @@
 import json
-from get_env_var import *
+from utils.get_env_var import *
 import mysql.connector
 from fastapi import FastAPI, Response
 
-from query_database import *
+from utils.query_database import *
 
 app = FastAPI()
 
