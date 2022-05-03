@@ -1,1 +1,2 @@
 web: gunicorn -w 3 -k uvicorn.workers.UvicornWorker ucfgarages_api:app
+clock: python clock.py

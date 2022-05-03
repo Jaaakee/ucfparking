@@ -6,3 +6,4 @@ fastapi
 sentry-sdk
 requests
 bs4
+APScheduler
