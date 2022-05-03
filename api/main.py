@@ -6,7 +6,7 @@ import sentry_sdk
 from bs4 import BeautifulSoup
 from datetime import datetime
 from sentry_sdk import capture_message
-from get_env_var import *
+from utils.get_env_var import *
 
 
 # function to parse and get all garage data
@@ -85,6 +85,21 @@ def main():
         garage_i_spaces_available VARCHAR(40), garage_i_total_capacity VARCHAR(40),garage_i_percent_full VARCHAR(40),
         libra_garage_spaces_available VARCHAR(40), libra_garage_total_capacity VARCHAR(40), libra_garage_percent_full VARCHAR(40))""")
     db.commit()
+
+
+
+    #Check if table parking data exists in the database. If not, add index on the date_and_time column.
+    sql = "SELECT COUNT(*) FROM information_schema.tables  WHERE table_schema = DATABASE() AND table_name = 'parking_data'"
+    cursor.execute(sql)
+    for data in cursor:
+        table_exists = True if data[0] == 1 else False
+
+    if (not table_exists):
+        sql = "ALTER TABLE parking_data ADD INDEX (date_and_time)"
+        cursor.execute(sql)
+        db.commit()
+
+
     appendarray = [current_date_and_time]
 
     for obj in garage_data:
@@ -93,9 +108,13 @@ def main():
         appendarray.append(vals["Total Capacity"])
         appendarray.append(vals["Percent Full"])
 
+    #Insert data into the database table
     sql = "INSERT INTO parking_data VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
     cursor.execute(sql, appendarray)
     db.commit()
+
+
+
     cursor.close()
     db.close()
 
