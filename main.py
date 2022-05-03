@@ -103,4 +103,5 @@ def main():
 
 
 # Run Program : get garage data and store it in the database
-main()
+if __name__ == '__main__':
+    main()
