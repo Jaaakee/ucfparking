@@ -6,7 +6,7 @@ def row_formatting(data, cnt):
 
     garage_row_queried = {
         'date_and_time': str(date_of_row),
-        "garages": [],
+        "garages": {},
     }
 
     name_dict = {'0' : 'A', '1' : 'B', '2' : 'C', '3' : 'D', '4' : 'H', '5' : 'I', '6' : 'Libra'}
@@ -14,14 +14,13 @@ def row_formatting(data, cnt):
 
 
     for garage_number in range(7):
-        formatted_dict_for_row_garage_number = {}
-        formatted_dict_for_row_garage_number[name_dict[str(garage_number)]] = {'max_spaces': int(data[3 * garage_number + 2]),
+        formatted_dict_for_row_garage_number = {'max_spaces': int(data[3 * garage_number + 2]),
                                                 'percent_full': int(data[3 * garage_number + 3]), 'spaces_filled': int(
                                                 int(data[3 * garage_number + 2]) - int(data[3 * garage_number + 1])),
                                                 'spaces_left': int(data[3 * garage_number + 1])}
 
 
-        garage_row_queried['garages'].append(formatted_dict_for_row_garage_number)
+        garage_row_queried['garages'][name_dict[str(garage_number)]] = (formatted_dict_for_row_garage_number)
 
     return garage_row_queried, cnt
 
