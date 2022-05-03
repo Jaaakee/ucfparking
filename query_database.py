@@ -9,13 +9,17 @@ def row_formatting(data, cnt):
         "garages": [],
     }
 
+    name_dict = {'0' : 'A', '1' : 'B', '2' : 'C', '3' : 'D', '4' : 'H', '5' : 'I', '6' : 'Libra'}
     cnt += 1
 
+
     for garage_number in range(7):
-        formatted_dict_for_row_garage_number = {'max_spaces': data[3 * garage_number + 2], 'name': "Garage A",
-                                                'percent_full': data[3 * garage_number + 3], 'spaces_filled': int(
-                int(data[3 * garage_number + 2]) - int(data[3 * garage_number + 1])),
-                                                'spaces_left': data[3 * garage_number + 1]}
+        formatted_dict_for_row_garage_number = {}
+        formatted_dict_for_row_garage_number[name_dict[str(garage_number)]] = {'max_spaces': int(data[3 * garage_number + 2]),
+                                                'percent_full': int(data[3 * garage_number + 3]), 'spaces_filled': int(
+                                                int(data[3 * garage_number + 2]) - int(data[3 * garage_number + 1])),
+                                                'spaces_left': int(data[3 * garage_number + 1])}
+
 
         garage_row_queried['garages'].append(formatted_dict_for_row_garage_number)
 
@@ -155,3 +159,4 @@ class DataQueryExtractor:
         all_today_data_queried['count'] = cnt
 
         return all_today_data_queried
+
