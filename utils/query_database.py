@@ -122,6 +122,7 @@ class DataQueryExtractor:
         query = "SELECT * FROM parking_data ORDER BY date_and_time DESC"
         self.my_cursor.execute(query)
         result = self.my_cursor.fetchall()
+        print(result)
         all_data_queried = {
             'count': 0,
             'data': [0] * len(result),
@@ -136,6 +137,9 @@ class DataQueryExtractor:
         all_data_queried['count'] = cnt
 
         return all_data_queried
+
+
+
 
     def get_today_data(self):
         today_date = datetime.datetime.now()
@@ -159,3 +163,12 @@ class DataQueryExtractor:
         all_today_data_queried['count'] = cnt
 
         return all_today_data_queried
+
+
+    def get_all_data_for_predictions(self):
+        query = "SELECT * FROM parking_data ORDER BY date_and_time DESC"
+        self.my_cursor.execute(query)
+        result = self.my_cursor.fetchall()
+
+
+        return result
