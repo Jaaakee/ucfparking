@@ -14,10 +14,10 @@ def row_formatting(data, cnt):
 
 
     for garage_number in range(7):
-        formatted_dict_for_row_garage_number = {'max_spaces': int(data[3 * garage_number + 2]),
-                                                'percent_full': int(data[3 * garage_number + 3]), 'spaces_filled': int(
-                                                int(data[3 * garage_number + 2]) - int(data[3 * garage_number + 1])),
-                                                'spaces_left': int(data[3 * garage_number + 1])}
+        formatted_dict_for_row_garage_number = {'max_spaces': int(float(data[3 * garage_number + 2])),
+                                                'percent_full': int(float(data[3 * garage_number + 3])), 'spaces_filled': int(float(
+                                                int(data[3 * garage_number + 2])) - int(float(data[3 * garage_number + 1]))),
+                                                'spaces_left': int(float(data[3 * garage_number + 1]))}
 
 
         garage_row_queried['garages'][name_dict[str(garage_number)]] = (formatted_dict_for_row_garage_number)
