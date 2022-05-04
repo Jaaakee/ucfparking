@@ -9,16 +9,14 @@ def row_formatting(data, cnt):
         "garages": {},
     }
 
-    name_dict = {'0' : 'A', '1' : 'B', '2' : 'C', '3' : 'D', '4' : 'H', '5' : 'I', '6' : 'Libra'}
+    name_dict = {'0': 'A', '1': 'B', '2': 'C', '3': 'D', '4': 'H', '5': 'I', '6': 'Libra'}
     cnt += 1
-
 
     for garage_number in range(7):
         formatted_dict_for_row_garage_number = {'total_capacity': int(data[3 * garage_number + 2]),
                                                 'percent_full': int(data[3 * garage_number + 3]), 'spaces_filled': int(
-                                                int(data[3 * garage_number + 2]) - int(data[3 * garage_number + 1])),
+                int(data[3 * garage_number + 2]) - int(data[3 * garage_number + 1])),
                                                 'spaces_available': int(data[3 * garage_number + 1])}
-
 
         garage_row_queried['garages'][name_dict[str(garage_number)]] = (formatted_dict_for_row_garage_number)
 
@@ -124,7 +122,7 @@ class DataQueryExtractor:
         result = self.my_cursor.fetchall()
         all_data_queried = {
             'count': 0,
-            'data': [0]*len(result),
+            'data': [0] * len(result),
         }
 
         cnt = 0
@@ -136,7 +134,6 @@ class DataQueryExtractor:
         all_data_queried['count'] = cnt
 
         return all_data_queried
-
 
     def get_today_data(self):
         today_date = datetime.datetime.now()
@@ -160,4 +157,3 @@ class DataQueryExtractor:
         all_today_data_queried['count'] = cnt
 
         return all_today_data_queried
-
