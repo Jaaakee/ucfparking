@@ -1,8 +1,7 @@
-.env
 .idea
-__pycache__
 
 # dependencies
+__pycache__
 /node_modules
 /.pnp
 .pnp.js
@@ -29,6 +28,7 @@ yarn-error.log*
 
 # dotenv local files
 .env*.local
+.env
 
 # local folder
 local

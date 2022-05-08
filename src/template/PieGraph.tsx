@@ -9,17 +9,20 @@ const data = [
   { name: 'Garage D', value: 200 },
   { name: 'Garage H', value: 456 },
   { name: 'Garage I', value: 323 },
-  { name: 'Libra Garage', value: 672 },
+  { name: 'Libra Garage', value: 672 }
 ];
 
 const PieGraph = () => (
   <ChartCard title="Spaces Filled by Garage">
     <PieChart>
       <Pie data={data} dataKey="value">
-        <Cell fill="#A3BFFA" />
-        <Cell fill="#7F9CF5" />
-        <Cell fill="#667EEA" />
-        <Cell fill="#5A67D8" />
+        <Cell fill="#3694da" />
+        <Cell fill="#0d9252" />
+        <Cell fill="#556d8c" />
+        <Cell fill="#674ea7" />
+        <Cell fill="#dc1010" />
+        <Cell fill="#b7950c" />
+        <Cell fill="#433737" />
       </Pie>
       <Legend />
       <Tooltip />
