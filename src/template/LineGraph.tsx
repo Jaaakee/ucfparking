@@ -5,7 +5,6 @@ import {
   CartesianGrid,
   Tooltip,
   Area,
-  Line,
 } from 'recharts';
 
 import { ChartCard } from '../chart/ChartCard';
@@ -45,7 +44,7 @@ const data = [
   },
   {
     users: 72,
-    month: 'Dec'
+    month: 'Dec',
   },
 ];
 
