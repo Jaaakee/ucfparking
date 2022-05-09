@@ -2,10 +2,20 @@ import json
 from utils.get_env_var import *
 import mysql.connector
 from fastapi import FastAPI, Response
-
+from fastapi.middleware.cors import CORSMiddleware
 from utils.query_database import *
 
 app = FastAPI()
+origins = ["*"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=False,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 
 def get_data(data, year=None, month=None, day=None):
