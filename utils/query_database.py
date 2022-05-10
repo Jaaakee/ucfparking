@@ -28,6 +28,29 @@ class DataQueryExtractor:
         self.my_database = my_database
         self.my_cursor = my_cursor
 
+
+    def stats(self):
+        query = "SELECT MAX(date_and_time) FROM parking_data"
+        self.my_cursor.execute(query)
+        for date in self.my_cursor:
+            max_date = date[0]
+
+
+        query = "SELECT COUNT(*) FROM parking_data"
+        self.my_cursor.execute(query)
+        for count in self.my_cursor:
+            count = count[0]
+
+        stats_data = {
+            'Number of data points': count,
+            'Last entry date_and_time': str(max_date),
+        }
+
+        print(stats_data)
+
+        return stats_data
+
+
     def get_last_week_data(self):
         week_ago_date = datetime.datetime.now() - datetime.timedelta(days=7)
         query = "SELECT * FROM parking_data WHERE date_and_time > %s ORDER BY date_and_time DESC"
