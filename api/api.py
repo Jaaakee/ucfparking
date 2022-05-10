@@ -17,7 +17,6 @@ app.add_middleware(
 )
 
 
-
 def get_data(data, year=None, month=None, day=None):
     my_database = mysql.connector.connect(
         host=os.environ['DB_HOST'],
@@ -45,12 +44,16 @@ def get_data(data, year=None, month=None, day=None):
         content = object_query.get_yearly_monthly_data(year, month)
     elif data == 'year-month-day':
         content = object_query.get_yearly_monthly_daily_data(year, month, day)
+    elif data == 'stats':
+        content = object_query.stats()
 
     my_cursor.close()
     my_database.close()
 
     if content:
         return content
+
+
 
 
 # Get the last data row from the database.
@@ -65,6 +68,23 @@ async def get_last_data():
         indent=3,
         separators=(", ", ": "),
     ).encode("utf-8"), status_code=200, media_type="application/json")
+
+
+
+# Get stats from the database.
+# - The total amount of rows in the db
+# - The time of the last data entry
+@app.get("/stats")
+async def get_stats():
+    content = get_data('stats')
+    return Response(content=json.dumps(
+        content,
+        ensure_ascii=False,
+        allow_nan=False,
+        indent=3,
+        separators=(", ", ": "),
+    ).encode("utf-8"), status_code=200, media_type="application/json")
+
 
 
 # Get all of the data from the database.
