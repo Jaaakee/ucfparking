@@ -5,8 +5,20 @@ import matplotlib.pyplot as plt
 import numpy as np
 import datetime
 
+#Total capacity of each garage known in advance.
+garage_A_total_capacity = 1623
+garage_B_total_capacity = 1259
+garage_C_total_capacity = 1852
+garage_D_total_capacity = 1241
+garage_H_total_capacity = 1284
+garage_I_total_capacity = 1231
+garage_Libra_total_capacity = 1007
 
 
+
+
+
+#Get all garages data (date + space availables)
 def get_garages_data_for_predictions():
 
     garage_A_time_series_spaces_available = []
@@ -66,170 +78,66 @@ def get_garages_data_for_predictions():
 
 
 
-#Variables known in advance
-garage_A_total_capacity = 1623
-garage_B_total_capacity = 1259
-garage_C_total_capacity = 1852
-garage_D_total_capacity = 1241
-garage_H_total_capacity = 1284
-garage_I_total_capacity = 1231
-garage_Libra_total_capacity = 1007
+#Process data and visualize it if asked.
+def visualize_and_process_garage(date_data,spaces_available_data, showing, which_garage, total_capacity ):
+    # Reverse the lists to have data in correct order (from 2021 to 2022 and not the opposite)
+    date_data = list(reversed(date_data))
+    spaces_available_data = list(reversed(spaces_available_data))
 
+    spaces_available_data = np.array(spaces_available_data) #transform to numpy array
+    spaces_available_data_processed = np.where(spaces_available_data>total_capacity,total_capacity,spaces_available_data) #Clean glitches of the API (values bigger than total capacity)
+    date_data_processed = date_data
 
-
-def visualize_and_process_garage_A(garage_A_time_series_dates,garage_A_time_series_spaces_available, showing ):
-
-    garage_A_time_series_spaces_available = np.array(garage_A_time_series_spaces_available)
-    garage_A_time_series_spaces_available_processed = np.where(garage_A_time_series_spaces_available>garage_A_total_capacity,garage_A_total_capacity,garage_A_time_series_spaces_available)
-    index_to_begin_garage_A = garage_A_time_series_dates.index(datetime.datetime(2021, 8, 13, 14, 0))
-    garage_A_time_series_dates_processed = garage_A_time_series_dates[:index_to_begin_garage_A]
-    garage_A_time_series_spaces_available_processed = garage_A_time_series_spaces_available_processed[:index_to_begin_garage_A]
+    if (which_garage == 'A'): #Remove period where garage A was closed
+        index_to_begin_garage_A = date_data.index(datetime.datetime(2021, 8, 13, 14, 0))
+        date_data_processed = date_data[index_to_begin_garage_A:]
+        spaces_available_data_processed = spaces_available_data_processed[index_to_begin_garage_A:]
 
 
     if showing:
-        plt.plot(garage_A_time_series_dates,garage_A_time_series_spaces_available)
-        plt.plot(garage_A_time_series_dates_processed,garage_A_time_series_spaces_available_processed)
-        plt.axhline(y=garage_A_total_capacity, color='r', linestyle='--')
+        plt.plot(date_data,spaces_available_data)
+        plt.plot(date_data_processed,spaces_available_data_processed)
+        plt.axhline(y=total_capacity, color='r', linestyle='--')
         plt.xlabel('Date (Time series)')
         plt.ylabel('Spaces Available')
-        plt.title('Garage A : Availability of spaces in function of the time')
+        plt.title(f'Garage {which_garage} : Availability of spaces in function of the time')
         plt.legend(['Raw','Processed'])
-        plt.savefig('plots/garageA.png')
+        plt.savefig(f'plots/garage{which_garage}.png')
         plt.show()
 
-    return garage_A_time_series_dates_processed, garage_A_time_series_spaces_available_processed
+    return date_data_processed, spaces_available_data_processed
 
 
 
-
-def visualize_and_process_garage_B(garage_B_time_series_dates,garage_B_time_series_spaces_available, showing ):
-
-    garage_B_time_series_spaces_available = np.array(garage_B_time_series_spaces_available)
-    garage_B_time_series_spaces_available_processed = np.where(garage_B_time_series_spaces_available>garage_B_total_capacity,garage_B_total_capacity,garage_B_time_series_spaces_available)
-    garage_B_time_series_dates_processed = garage_B_time_series_dates
-
-    if showing:
-        plt.plot(garage_B_time_series_dates,garage_B_time_series_spaces_available)
-        plt.plot(garage_B_time_series_dates_processed,garage_B_time_series_spaces_available_processed)
-        plt.axhline(y=garage_B_total_capacity, color='r', linestyle='--')
-        plt.xlabel('Date (Time series)')
-        plt.ylabel('Spaces Available')
-        plt.title('Garage B : Availability of spaces in function of the time')
-        plt.legend(['Raw','Processed'])
-        plt.savefig('plots/garageB.png')
-        plt.show()
-
-    return garage_B_time_series_dates_processed, garage_B_time_series_spaces_available_processed
+if __name__ == "__main__":
+    garage_A_time_series_dates, garage_B_time_series_dates, garage_C_time_series_dates, garage_D_time_series_dates, garage_H_time_series_dates, garage_I_time_series_dates, garage_Libra_time_series_dates, garage_A_time_series_spaces_available, garage_B_time_series_spaces_available, garage_C_time_series_spaces_available, garage_D_time_series_spaces_available, garage_H_time_series_spaces_available, garage_I_time_series_spaces_available, garage_Libra_time_series_spaces_available = get_garages_data_for_predictions()
 
 
-def visualize_and_process_garage_C(garage_C_time_series_dates,garage_C_time_series_spaces_available, showing ):
-
-    garage_C_time_series_spaces_available = np.array(garage_C_time_series_spaces_available)
-    garage_C_time_series_spaces_available_processed = np.where(garage_C_time_series_spaces_available>garage_C_total_capacity,garage_C_total_capacity,garage_C_time_series_spaces_available)
-    garage_C_time_series_dates_processed = garage_C_time_series_dates
-
-    if showing:
-        plt.plot(garage_C_time_series_dates,garage_C_time_series_spaces_available)
-        plt.plot(garage_C_time_series_dates_processed,garage_C_time_series_spaces_available_processed)
-        plt.axhline(y=garage_C_total_capacity, color='r', linestyle='-')
-        plt.xlabel('Date (Time series)')
-        plt.ylabel('Spaces Available')
-        plt.title('Garage C : Availability of spaces in function of the time')
-        plt.legend(['Raw','Processed'])
-        plt.savefig('plots/garageC.png')
-        plt.show()
-
-    return garage_C_time_series_dates_processed, garage_C_time_series_spaces_available_processed
+    garage_A_time_series_dates_processed, garage_A_time_series_spaces_available_processed = visualize_and_process_garage(
+        garage_A_time_series_dates, garage_A_time_series_spaces_available, True, 'A', garage_A_total_capacity)
 
 
-
-def visualize_and_process_garage_D(garage_D_time_series_dates,garage_D_time_series_spaces_available, showing ):
-
-    garage_D_time_series_spaces_available = np.array(garage_D_time_series_spaces_available)
-    garage_D_time_series_spaces_available_processed = np.where(garage_D_time_series_spaces_available>garage_D_total_capacity,garage_D_total_capacity,garage_D_time_series_spaces_available)
-    garage_D_time_series_dates_processed = garage_D_time_series_dates
-
-    if showing:
-        plt.plot(garage_D_time_series_dates,garage_D_time_series_spaces_available)
-        plt.plot(garage_D_time_series_dates_processed,garage_D_time_series_spaces_available_processed)
-        plt.axhline(y=garage_D_total_capacity, color='r', linestyle='-')
-        plt.xlabel('Date (Time series)')
-        plt.ylabel('Spaces Available')
-        plt.title('Garage D : Availability of spaces in function of the time')
-        plt.legend(['Raw','Processed'])
-        plt.savefig('plots/garageD.png')
-        plt.show()
-
-    return garage_D_time_series_dates_processed, garage_D_time_series_spaces_available_processed
+    garage_B_time_series_dates_processed, garage_B_time_series_spaces_available_processed = visualize_and_process_garage(
+        garage_B_time_series_dates, garage_B_time_series_spaces_available, True, 'B', garage_B_total_capacity)
 
 
+    garage_C_time_series_dates_processed, garage_C_time_series_spaces_available_processed = visualize_and_process_garage(
+        garage_C_time_series_dates, garage_C_time_series_spaces_available, True, 'C', garage_C_total_capacity)
+    #
 
-def visualize_and_process_garage_H(garage_H_time_series_dates,garage_H_time_series_spaces_available, showing ):
-
-    garage_H_time_series_spaces_available = np.array(garage_H_time_series_spaces_available)
-    garage_H_time_series_spaces_available_processed = np.where(garage_H_time_series_spaces_available>garage_H_total_capacity,garage_H_total_capacity,garage_H_time_series_spaces_available)
-    garage_H_time_series_dates_processed = garage_H_time_series_dates
-
-    if showing:
-        plt.plot(garage_H_time_series_dates,garage_H_time_series_spaces_available)
-        plt.plot(garage_H_time_series_dates_processed,garage_H_time_series_spaces_available_processed)
-        plt.axhline(y=garage_H_total_capacity, color='r', linestyle='-')
-        plt.xlabel('Date (Time series)')
-        plt.ylabel('Spaces Available')
-        plt.title('Garage H : Availability of spaces in function of the time')
-        plt.legend(['Raw','Processed'])
-        plt.savefig('plots/garageH.png')
-        plt.show()
-
-    return garage_H_time_series_dates_processed, garage_H_time_series_spaces_available_processed
+    garage_D_time_series_dates_processed, garage_D_time_series_spaces_available_processed = visualize_and_process_garage(
+        garage_D_time_series_dates, garage_D_time_series_spaces_available, True, 'D', garage_D_total_capacity)
 
 
+    garage_H_time_series_dates_processed, garage_H_time_series_spaces_available_processed = visualize_and_process_garage(
+        garage_H_time_series_dates, garage_H_time_series_spaces_available, True, 'H', garage_H_total_capacity)
 
 
-def visualize_and_process_garage_I(garage_I_time_series_dates,garage_I_time_series_spaces_available, showing ):
-
-    garage_I_time_series_spaces_available = np.array(garage_I_time_series_spaces_available)
-    garage_I_time_series_spaces_available_processed = np.where(garage_I_time_series_spaces_available>garage_I_total_capacity,garage_I_total_capacity,garage_I_time_series_spaces_available)
-    garage_I_time_series_dates_processed = garage_I_time_series_dates
+    garage_I_time_series_dates_processed, garage_I_time_series_spaces_available_processed = visualize_and_process_garage(
+        garage_I_time_series_dates, garage_I_time_series_spaces_available, True, 'I', garage_I_total_capacity)
 
 
-    if showing:
-        plt.plot(garage_I_time_series_dates,garage_I_time_series_spaces_available)
-        plt.plot(garage_I_time_series_dates_processed,garage_I_time_series_spaces_available_processed)
-        plt.axhline(y=garage_I_total_capacity, color='r', linestyle='-')
-        plt.xlabel('Date (Time series)')
-        plt.ylabel('Spaces Available')
-        plt.title('Garage I : Availability of spaces in function of the time')
-        plt.legend(['Raw','Processed'])
-        plt.savefig('plots/garageI.png')
-        plt.show()
-
-
-    return garage_I_time_series_dates_processed, garage_I_time_series_spaces_available_processed
-
-
-
-def visualize_and_process_garage_Libra(garage_Libra_time_series_dates,garage_Libra_time_series_spaces_available, showing ):
-
-    garage_Libra_time_series_spaces_available = np.array(garage_Libra_time_series_spaces_available)
-    garage_Libra_time_series_spaces_available_processed = np.where(garage_Libra_time_series_spaces_available>garage_Libra_total_capacity,garage_Libra_total_capacity,garage_Libra_time_series_spaces_available)
-    garage_Libra_time_series_dates_processed = garage_Libra_time_series_dates
-
-
-    if showing:
-        plt.plot(garage_Libra_time_series_dates,garage_Libra_time_series_spaces_available)
-        plt.plot(garage_Libra_time_series_dates_processed,garage_Libra_time_series_spaces_available_processed)
-        plt.axhline(y=garage_Libra_total_capacity, color='r', linestyle='-')
-        plt.xlabel('Date (Time series)')
-        plt.ylabel('Spaces Available')
-        plt.title('Garage Libra : Availability of spaces in function of the time')
-        plt.legend(['Raw','Processed'])
-        plt.savefig('plots/garageLibra.png')
-        plt.show()
-
-    return garage_Libra_time_series_dates_processed, garage_Libra_time_series_spaces_available_processed
-
-
-
+    garage_Libra_time_series_dates_processed, garage_Libra_time_series_spaces_available_processed = visualize_and_process_garage(
+        garage_Libra_time_series_dates, garage_Libra_time_series_spaces_available, True, 'Libra', garage_Libra_total_capacity)
 
 
