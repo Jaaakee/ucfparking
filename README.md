@@ -1,7 +1,7 @@
 
 # UCF Parking
 
-This project makes it easy to view parking garage space availability on the University of Central Florida's main campus. This project contains a web scraper and REST API written in Python and a site written in Next.js with Tailwind CSS (ucfparking.com). This project aims to relieve the stress of finding a parking spot on campus and assist students with creating a plan before arriving on campus.
+This project makes it easy to view parking garage space availability on the University of Central Florida's main campus. This project contains a web scraper and REST API written in Python and a site written in Next.js with Tailwind CSS ([ucfparking.com](https://ucfparking.com)). This project aims to relieve the stress of finding a parking spot on campus and assist students with creating a plan before arriving on campus.
 ## Features
 - 🚀 Hourly parking data scraped since March 21st, 2021!
 - 🖥️ Public API with access to a bunch of methods. [Learn more!](#api-routes)
