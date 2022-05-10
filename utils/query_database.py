@@ -46,8 +46,6 @@ class DataQueryExtractor:
             'Last entry date_and_time': str(max_date),
         }
 
-        
-
         return stats_data
 
 
