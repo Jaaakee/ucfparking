@@ -46,6 +46,12 @@ def get_data(data, year=None, month=None, day=None):
         content = object_query.get_yearly_monthly_daily_data(year, month, day)
     elif data == 'stats':
         content = object_query.stats()
+    elif data == 'lastday':
+        content = object_query.get_lastday()
+    elif data == 'lastmonth':
+        content = object_query.get_lastmonth()
+    elif data == 'lastyear':
+        content = object_query.get_lastyear()
 
     my_cursor.close()
     my_database.close()
@@ -77,6 +83,49 @@ async def get_last_data():
 @app.get("/stats")
 async def get_stats():
     content = get_data('stats')
+    return Response(content=json.dumps(
+        content,
+        ensure_ascii=False,
+        allow_nan=False,
+        indent=3,
+        separators=(", ", ": "),
+    ).encode("utf-8"), status_code=200, media_type="application/json")
+
+
+
+# Get last day data (last 24 hours).
+@app.get("/lastday")
+async def get_lastday():
+    content = get_data('lastday')
+    return Response(content=json.dumps(
+        content,
+        ensure_ascii=False,
+        allow_nan=False,
+        indent=3,
+        separators=(", ", ": "),
+    ).encode("utf-8"), status_code=200, media_type="application/json")
+
+
+
+# Get last month data (last 30 days).
+@app.get("/lastmonth")
+async def get_lastmonth():
+    content = get_data('lastmonth')
+    return Response(content=json.dumps(
+        content,
+        ensure_ascii=False,
+        allow_nan=False,
+        indent=3,
+        separators=(", ", ": "),
+    ).encode("utf-8"), status_code=200, media_type="application/json")
+
+
+
+
+# Get last year data (last 365 days).
+@app.get("/lastyear")
+async def get_lastyear():
+    content = get_data('lastyear')
     return Response(content=json.dumps(
         content,
         ensure_ascii=False,
