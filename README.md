@@ -36,34 +36,34 @@ The Heroku add-on's that are used include: [ClearDB MySQL](https://devcenter.her
 Please note that these routes are for [ucfparking.com](https://ucf-parking-data.herokuapp.com). Please note that each of these routes returns a page of JSON. The timezone in this project is UTC. Queries with an asterik (*) next to the description may take a bit of time depending on the amount of data in the database.
 
 #### Get the last row of data entered in the database.
-[`/`](https://ucf-parking-data.herokuapp.com/)
+[`/`](https://api.ucfparking.com/)
 
 #### * Get all of the data in the database.
-[`/all`](https://ucf-parking-data.herokuapp.com/all)
+[`/all`](https://api.ucfparking.com/all)
 
 #### Get the combined data from the current day.
-[`/today`](https://ucf-parking-data.herokuapp.com/today)
+[`/today`](https://api.ucfparking.com/today)
 
 #### Get the combined data from the past 24 hours.
 [`/lastday`](https://ucf-parking-data.herokuapp.com/lastday)
 
 #### Get the combined data from the past 7 days.
-[`/week`](https://ucf-parking-data.herokuapp.com/week)
+[`/week`](https://api.ucfparking.com/week)
 
 #### Get the combined data from the past 30 days.
-[`/lastmonth`](https://ucf-parking-data.herokuapp.com/lastmonth)
+[`/lastmonth`](https://api.ucfparking.com/lastmonth)
 
 #### Get the combined data from the past 365 days.
 [`/lastyear`](https://ucf-parking-data.herokuapp.com/lastyear)
 
 #### * Get access to the specified year's data.
-[`/:year:`](https://ucf-parking-data.herokuapp.com/2022)
+[`/:year:`](https://api.ucfparking.com/2022)
 
 #### Get access to the specified year-month's data.
-[`/:year:/:month:`](https://ucf-parking-data.herokuapp.com/2022/01)
+[`/:year:/:month:`](https://api.ucfparking.com/2022/01)
 
 #### Get access to the specified year-month-day's data.
-[`/:year:/:month:/:day:`](https://ucf-parking-data.herokuapp.com/2022/01/01)
+[`/:year:/:month:/:day:`](https://api.ucfparking.com/2022/01/01)
 
 #### Get statistics about the data.
 [`/stats`](https://ucf-parking-data.herokuapp.com/stats)

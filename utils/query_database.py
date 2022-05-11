@@ -44,8 +44,8 @@ class DataQueryExtractor:
             count = count[0]
 
         stats_data = {
-            'Number of data points': count,
-            'Last entry date_and_time': str(max_date),
+            'total_data_rows': count,
+            'last_date_and_time': str(max_date),
         }
 
         return stats_data
