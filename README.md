@@ -53,7 +53,7 @@ Please note that these routes are for [ucfparking.com](https://ucf-parking-data.
 #### Get the combined data from the past 30 days.
 [`/lastmonth`](https://api.ucfparking.com/lastmonth)
 
-#### Get the combined data from the past 365 days.
+#### * Get the combined data from the past 365 days.
 [`/lastyear`](https://api.ucfparking.com/lastyear)
 
 #### * Get access to the specified year's data.
