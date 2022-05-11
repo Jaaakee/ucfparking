@@ -51,6 +51,68 @@ class DataQueryExtractor:
         return stats_data
 
 
+    def get_lastday(self):
+        query = "SELECT * FROM parking_data ORDER BY date_and_time DESC LIMIT 24"
+        self.my_cursor.execute(query)
+
+        lastday_data_queried = {
+            'count': 0,
+            'data': [],
+        }
+
+        cnt = 0
+        for data in self.my_cursor:
+            garage_row_queried, cnt = row_formatting(data, cnt)
+            lastday_data_queried['data'].append(garage_row_queried)
+
+        lastday_data_queried['count'] = cnt
+
+        return lastday_data_queried
+
+
+
+    def get_lastmonth(self):
+        query = "SELECT * FROM parking_data ORDER BY date_and_time DESC LIMIT 720"
+        self.my_cursor.execute(query)
+
+        lastmonth_data_queried = {
+            'count': 0,
+            'data': [],
+        }
+
+        cnt = 0
+        for data in self.my_cursor:
+            garage_row_queried, cnt = row_formatting(data, cnt)
+            lastmonth_data_queried['data'].append(garage_row_queried)
+
+        lastmonth_data_queried['count'] = cnt
+
+        return lastmonth_data_queried
+
+
+
+    def get_lastyear(self):
+        query = "SELECT * FROM parking_data ORDER BY date_and_time DESC LIMIT 8760"
+        self.my_cursor.execute(query)
+
+        lastyear_data_queried = {
+            'count': 0,
+            'data': [],
+        }
+
+        cnt = 0
+        for data in self.my_cursor:
+            garage_row_queried, cnt = row_formatting(data, cnt)
+            lastyear_data_queried['data'].append(garage_row_queried)
+
+        lastyear_data_queried['count'] = cnt
+
+        return lastyear_data_queried
+
+
+
+
+
     def get_last_week_data(self):
         week_ago_date = datetime.datetime.now() - datetime.timedelta(days=7)
         query = "SELECT * FROM parking_data WHERE date_and_time > %s ORDER BY date_and_time DESC"

@@ -41,14 +41,20 @@ Please note that these routes are for [ucfparking.com](https://ucf-parking-data.
 #### * Get all of the data in the database.
 [`/all`](https://ucf-parking-data.herokuapp.com/all)
 
-#### Get the combined data from the past 24 hours.
+#### Get the combined data from the current day.
 [`/today`](https://ucf-parking-data.herokuapp.com/today)
+
+#### Get the combined data from the past 24 hours.
+[`/lastday`](https://ucf-parking-data.herokuapp.com/lastday)
 
 #### Get the combined data from the past 7 days.
 [`/week`](https://ucf-parking-data.herokuapp.com/week)
 
-#### Get statistics about the data.
-[`/stats`](https://ucf-parking-data.herokuapp.com/stats)
+#### Get the combined data from the past 30 days.
+[`/lastmonth`](https://ucf-parking-data.herokuapp.com/lastmonth)
+
+#### Get the combined data from the past 365 days.
+[`/lastyear`](https://ucf-parking-data.herokuapp.com/lastyear)
 
 #### * Get access to the specified year's data.
 [`/:year:`](https://ucf-parking-data.herokuapp.com/2022)
@@ -58,3 +64,6 @@ Please note that these routes are for [ucfparking.com](https://ucf-parking-data.
 
 #### Get access to the specified year-month-day's data.
 [`/:year:/:month:/:day:`](https://ucf-parking-data.herokuapp.com/2022/01/01)
+
+#### Get statistics about the data.
+[`/stats`](https://ucf-parking-data.herokuapp.com/stats)
