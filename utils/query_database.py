@@ -206,7 +206,6 @@ class DataQueryExtractor:
         query = "SELECT * FROM parking_data ORDER BY date_and_time DESC"
         self.my_cursor.execute(query)
         result = self.my_cursor.fetchall()
-        print(result)
         all_data_queried = {
             'count': 0,
             'data': [0] * len(result),
