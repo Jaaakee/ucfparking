@@ -1,6 +1,6 @@
-import { ReactNode } from 'react';
+import { ReactNode } from "react";
 
-import classNames from 'classnames';
+import classNames from "classnames";
 
 type ILabelInputProps = {
   id?: string;
@@ -11,13 +11,13 @@ type ILabelInputProps = {
 
 const LabelInput = (props: ILabelInputProps) => {
   const inputBlockClass = classNames({
-    'sm:w-4/6': !props.sm,
-    'sm:w-3/6': props.sm,
-    'xl:w-3/6': !props.sm,
-    'xl:w-2/6': props.sm,
-    'sm:ml-3': true,
-    'mt-1': true,
-    'sm:mt-0': true,
+    "sm:w-4/6": !props.sm,
+    "sm:w-3/6": props.sm,
+    "xl:w-3/6": !props.sm,
+    "xl:w-2/6": props.sm,
+    "sm:ml-3": true,
+    "mt-1": true,
+    "sm:mt-0": true
   });
 
   return (
