@@ -16,7 +16,7 @@ const StatsCard = (props: IStatsCardProps) => (
       <div className="text-xl font-bold dark:text-gray-400 text-gray-800">
         {props.children}
       </div>
-      <div className="text-lg font-semibold">{props.text}</div>
+      <div className="dark:text-gray-600 text-lg font-semibold">{props.text}</div>
     </div>
 
     <style jsx>

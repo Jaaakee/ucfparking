@@ -35,7 +35,6 @@ const data = [
 ]
 
 const PieGraph = () => {
-  // eslint-disable-next-line @typescript-eslint/no-shadow
   const state = useSelector((state: any) => state.chart);
   return (
     <ChartCard title="Current Spaces Filled by Garage">
@@ -47,7 +46,7 @@ const PieGraph = () => {
           <Cell fill="#674ea7" />
           <Cell fill="#dc1010" />
           <Cell fill="#b7950c" />
-          <Cell fill="#433737" />
+          <Cell fill="#bd26ae" />
         </Pie>
         <Legend />
         <Tooltip />

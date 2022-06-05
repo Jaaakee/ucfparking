@@ -10,7 +10,6 @@ import {  useEffect, useState } from 'react'
 const Stats = () => {
 const dispatch = useDispatch()
   const {
-    // getTodayData
     HandleLastRowData,
     getLastDayData,
     getBarChartData,
@@ -18,32 +17,26 @@ const dispatch = useDispatch()
   } = bindActionCreators(actionCreators, dispatch);
   
   useEffect(() => {
-    // dispatch(getTodayData())
     HandleLastRowData()
     getLastDayData()
     getBarChartData()
     getPieChartData()
   }, [])
 
-  // eslint-disable-next-line @typescript-eslint/no-shadow
   const state = useSelector((state: any) => state)
   const [updatedtime, setUpdatedTime] = useState('00:02:01');  
 
   const { parking, chart } = state
   const { barChartData } = chart
-  // eslint-disable-next-line @typescript-eslint/naming-convention
   const { total_data_rows } = parking
   
-  //Available Spaces
   let spaces: number = 0
   for (const space in barChartData) {
     spaces += barChartData[space].spaces
   }
  
-  // Next Prediction Update
   const nextpredictionUpdate = (utcTime: string | number | Date) => {
   const utcObj = new Date(utcTime);
-  // console.log(utcObj);
   const hours = utcObj.getUTCHours();
   const minutes = utcObj.getUTCMinutes();
 
@@ -60,8 +53,7 @@ const dispatch = useDispatch()
       /**
        * Add 6 hours in current utc time.
        * And get utc date components and set hour, minutes and seconds manually.
-       *
-       */
+      **/
       const utcTimePlus6HoursInMilliSeconds = utcObj.getTime() + (6*60*60*1000);
       const newUtcObj = new Date(utcTimePlus6HoursInMilliSeconds);
   
@@ -77,16 +69,11 @@ const dispatch = useDispatch()
     }
   
     const nextUtcMilliSeconds = Date.UTC(nextYear, nextMonth, nextDate, nextHour, nextMinute, nextSecond);
-    // const nextUtcObj = new Date(nextUtcMilliSeconds);
-    // console.log(nextUtcObj);
-  
     const remainingMilliSeconds = nextUtcMilliSeconds - utcObj.valueOf();
   
-  
     let remainingSeconds = Math.round(remainingMilliSeconds / 1000);
-  
     let HH:any = Math.floor(Math.floor(remainingSeconds / 60) / 60);
-  
+
     remainingSeconds = remainingSeconds - (HH * 60 * 60);
   
     let MM:any = Math.floor(remainingSeconds / 60);
@@ -99,11 +86,7 @@ const dispatch = useDispatch()
   }
   
   const now_date_and_time = new Date();
-  
-  // const data = nextpredictionUpdate(now_date_and_time);
-  // console.log(data);
 
-  //Next Data Update
   setInterval(function(){
     const nowDateandTime = new Date();
     let MM:any = nowDateandTime.getUTCMinutes() < 1 ? 0 : 60 - nowDateandTime.getUTCMinutes();
@@ -112,7 +95,6 @@ const dispatch = useDispatch()
     MM = MM < 10 ? `0${MM}` : MM;
     SS = SS < 10 ? `0${SS}` : SS;
   
-    // var target = `${HH}:${MM}:${SS} `
     var target = `00:${MM}:${SS}`;
     if(target === "00:00:01"){
       HandleLastRowData()

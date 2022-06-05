@@ -2,7 +2,6 @@ import { Dispatch } from "redux";
 import { ActionType } from "../constants/index";
 import { filterByWeek, handelChartData, handleBarChart } from "./chartActions";
 
-// export const HandleLastRowData = (lastRowData: any) => (dispatch: Dispatch) => {
 export const HandleLastRowData = () => async(dispatch: Dispatch) => {
   try {
     const res = await fetch("https://api.ucfparking.com/stats");
@@ -16,22 +15,6 @@ export const HandleLastRowData = () => async(dispatch: Dispatch) => {
   }
 };
 
-// export const getTodayData = () => async (dispatch: Dispatch) => {
-// try {
-//     const res = await fetch("https://api.ucfparking.com/today");
-//     const graphData= await res.json();
-
-//     let chartData = handelChartData(graphData.data, "today")
-//     // console.log("handelChartData", graphData.data)
-//     dispatch({
-//         type: ActionType.GET_TODAY_DATA,
-//         payload: graphData.data,
-//         data: chartData
-//     });
-// } catch (error) {
-  // console.log(error)
-// }
-//   };
 export const getLastDayData = () => async (dispatch: Dispatch) => {
   try {
     const res = await fetch("https://api.ucfparking.com/lastday");
@@ -79,27 +62,6 @@ export const getLastMonthData = () => async (dispatch: Dispatch) => {
     console.log(error)
   }
 };
-
-// export const getLastYearData = () => async (dispatch: Dispatch) => {
-//   const res = await fetch("https://api.ucfparking.com/lastyear");
-//   const graphData = await res.json();
-//   const chartData = handelChartData(graphData.data, "lastyear");
-//   dispatch({
-//     type: ActionType.GET_LAST_YEAR_DATA,
-//     payload: graphData.data,
-//     data: chartData
-//   });
-// };
-
-//   export const handelAllData = () => async (dispatch: Dispatch) => {
-//     const res = await fetch("https://api.ucfparking.com/all");
-//     const graphData= await res.json();
-
-//     dispatch({
-//         type: ActionType.GET_ALL_DATA,
-//         payload: graphData.data
-//     });
-//   };
 
 export const getBarChartData = () => async (dispatch: Dispatch) => {
   try {

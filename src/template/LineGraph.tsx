@@ -247,12 +247,10 @@ const data = [
 ]
 
 const LineGraph = () => {
-  // eslint-disable-next-line @typescript-eslint/no-shadow
   const state = useSelector((state: any) => state.chart);
   return (
     <ChartCard title="Parking Data">
       <AreaChart
-        // data={data}
         data={ state.lineChartData.length === 0 ? data : state.lineChartData }
         margin={{
           top: 0,
@@ -266,7 +264,9 @@ const LineGraph = () => {
           tickLine={false}
           axisLine={false}
           ticks={state.lineChartTicks.length === 0 ? [0, 500, 1000, 1500, 2000] : state.lineChartTicks}
-          // ticks={state.lineChartTicks}
+          tickCount={state.lineChartTicks.length}
+          dy={-5}
+          dx={-5}
         />
         <CartesianGrid className="dark:stroke-slate-600 stroke-slate-300" strokeDasharray="15" vertical={false} />
         <Tooltip />
@@ -323,7 +323,7 @@ const LineGraph = () => {
           dataKey="Libra"
           name="Garage Libra Available Spaces"
           strokeWidth={5}
-          stroke="#433737"
+          stroke="#bd26ae"
           fillOpacity={0}
         />
       </AreaChart>
