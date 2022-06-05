@@ -1,19 +1,21 @@
-import { LineGraph } from './LineGraph';
-import { BarGraph } from './BarGraph';
-import { PieGraph } from './PieGraph';
+import { BarGraph } from './BarGraph'
+import { LineGraph } from './LineGraph'
+import { PieGraph } from './PieGraph'
 
-const Charts = () => (
-  <div className="grid grid-cols-12 gap-6">
-    <div className="col-span-12">
-      <LineGraph />
+const Charts = () => {
+  return (
+    <div className="grid grid-cols-12 gap-6">
+      <div className="col-span-12">
+        <LineGraph />
+      </div>
+      <div className="col-span-12 lg:col-span-8">
+        <BarGraph />
+      </div>
+      <div className="col-span-12 lg:col-span-4">
+        <PieGraph />
+      </div>
     </div>
-    <div className="col-span-12 lg:col-span-8">
-      <BarGraph />
-    </div>
-    <div className="col-span-12 lg:col-span-4">
-      <PieGraph />
-    </div>
-  </div>
-);
+  )
+}
 
-export { Charts };
+export { Charts }

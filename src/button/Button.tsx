@@ -1,13 +1,13 @@
-import className from 'classnames';
+import className from 'classnames'
 
 type IButtonProps = {
-  xs?: boolean;
-  sm?: boolean;
-  xl?: boolean;
-  secondary?: boolean;
-  full?: boolean;
-  children: string;
-};
+  xs?: boolean
+  sm?: boolean
+  xl?: boolean
+  secondary?: boolean
+  full?: boolean
+  children: string
+}
 
 const Button = (props: IButtonProps) => {
   const btnClass = className({
@@ -18,11 +18,11 @@ const Button = (props: IButtonProps) => {
     'btn-base': !props.xl,
     'btn-secondary': props.secondary,
     'btn-primary': !props.secondary,
-    'w-full': props.full,
-  });
+    'w-full': props.full
+  })
 
   return (
-    <div className={btnClass}>
+    <button className={btnClass}>
       {props.children}
 
       <style jsx>
@@ -48,7 +48,7 @@ const Button = (props: IButtonProps) => {
           }
 
           .btn-primary {
-            @apply text-white bg-primary-500 border-gray-100;
+            @apply text-white bg-primary-500 dark:border-gray-800 border-gray-100;
           }
 
           .btn-primary:hover {
@@ -72,8 +72,8 @@ const Button = (props: IButtonProps) => {
           }
         `}
       </style>
-    </div>
-  );
-};
+    </button>
+  )
+}
 
-export { Button };
+export { Button }

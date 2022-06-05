@@ -14,12 +14,23 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@headlessui/react": "^1.6.3",
+    "@heroicons/react": "^1.0.6",
     "classnames": "^2.3.1",
+    "moment": "^2.29.3",
+    "moment-timezone": "^0.5.34",
     "next": "^12.0.7",
+    "next-redux-wrapper": "^7.0.5",
     "next-seo": "^4.28.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-moment": "^1.1.2",
+    "react-redux": "^8.0.1",
     "recharts": "^2.1.8",
+    "redux": "^4.2.0",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.4.1",
     "styled-jsx-plugin-postcss": "^4.0.1"
   },
   "devDependencies": {

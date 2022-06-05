@@ -1,7 +1,6 @@
-import Link from 'next/link';
-
-import { Button } from '../button/Button';
-import { DetailTable } from '../table/DetailTable';
+import Link from "next/link";
+import { Button } from "../button/Button";
+import { DetailTable } from "../table/DetailTable";
 
 const Table = () => (
   <DetailTable
@@ -32,10 +31,10 @@ const Table = () => (
       </>
     }
     pagination={{
-      stats: '1 - 10 of 350',
+      stats: "1 - 10 of 350",
       current: 2,
       nbPage: 5,
-      href: '/tables',
+      href: "/tables"
     }}
   >
     <tr>

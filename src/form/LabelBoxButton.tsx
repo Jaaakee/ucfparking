@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode } from "react";
 
 type ILabelBoxButtonProps = {
   id: string;
@@ -18,7 +18,7 @@ const LabelBoxButton = (props: ILabelBoxButtonProps) => (
           @apply border-gray-300 text-primary-600 shadow-sm hover:border-gray-300 focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 focus:ring-offset-0;
         }
 
-        .label-box-button :global(input[type='checkbox']) {
+        .label-box-button :global(input[type="checkbox"]) {
           @apply rounded;
         }
       `}
