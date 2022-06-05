@@ -1,0 +1,10 @@
+python-dotenv
+uvicorn
+gunicorn
+mysql-connector-python
+fastapi
+sentry-sdk
+requests
+bs4
+APScheduler
+matplotlib
