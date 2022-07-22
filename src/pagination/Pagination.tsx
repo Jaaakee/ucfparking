@@ -1,5 +1,5 @@
-import classNames from 'classnames';
-import Link from 'next/link';
+import classNames from "classnames";
+import Link from "next/link";
 
 type IPaginationProps = {
   current: number;
@@ -9,25 +9,25 @@ type IPaginationProps = {
 
 const Pagination = (props: IPaginationProps) => {
   const aPreviousClass = classNames({
-    'pointer-events-none': props.current === 1,
+    "pointer-events-none": props.current === 1
   });
 
   const divPreviousClass = classNames({
-    'pagination-elt': true,
-    'rounded-l-md': true,
+    "pagination-elt": true,
+    "rounded-l-md": true,
     unselected: props.current !== 1,
-    disabled: props.current === 1,
+    disabled: props.current === 1
   });
 
   const aNextClass = classNames({
-    'pointer-events-none': props.current === props.nbPage,
+    "pointer-events-none": props.current === props.nbPage
   });
 
   const divNextClass = classNames({
-    'pagination-elt': true,
-    'rounded-r-md': true,
+    "pagination-elt": true,
+    "rounded-r-md": true,
     unselected: props.current !== props.nbPage,
-    disabled: props.current === props.nbPage,
+    disabled: props.current === props.nbPage
   });
 
   return (
@@ -52,9 +52,6 @@ const Pagination = (props: IPaginationProps) => {
       {[...Array(props.nbPage)].map((_elt, i) => {
         if (props.current !== i + 1) {
           return (
-            // Disable eslint because it doesn't apply here,
-            // element represents a page not an element
-            // eslint-disable-next-line react/no-array-index-key
             <Link href={`${props.href}/${i + 1}`} key={i}>
               <a>
                 <div className="pagination-elt unselected">{i + 1}</div>
@@ -64,7 +61,6 @@ const Pagination = (props: IPaginationProps) => {
         }
 
         return (
-          // eslint-disable-next-line react/no-array-index-key
           <div className="pagination-elt bg-primary-500 text-gray-100" key={i}>
             {i + 1}
           </div>

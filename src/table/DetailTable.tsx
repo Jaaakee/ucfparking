@@ -1,6 +1,6 @@
-import { ReactNode } from 'react';
+import { ReactNode } from "react";
 
-import { Pagination } from '../pagination/Pagination';
+import { Pagination } from "../pagination/Pagination";
 
 type IDetailTableType = {
   head: ReactNode;
