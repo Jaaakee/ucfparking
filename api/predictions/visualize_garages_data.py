@@ -5,6 +5,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 import datetime
 
+
+
+
 #Total capacity of each garage known in advance.
 garage_A_total_capacity = 1623
 garage_B_total_capacity = 1259
@@ -13,9 +16,6 @@ garage_D_total_capacity = 1241
 garage_H_total_capacity = 1284
 garage_I_total_capacity = 1231
 garage_Libra_total_capacity = 1007
-
-
-
 
 
 #Get all garages data (date + space availables)
