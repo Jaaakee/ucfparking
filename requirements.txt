@@ -8,3 +8,9 @@ requests
 bs4
 APScheduler
 matplotlib
+pre-commit
+flake8
+black
+pydocstyle
+mypy
+isort
