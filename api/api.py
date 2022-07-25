@@ -1,12 +1,12 @@
+"""FastAPI api for interacting with the database."""
 import json
-from utils.get_env_var import *
-import mysql.connector
 from fastapi import FastAPI, Response
 from fastapi.middleware.cors import CORSMiddleware
 from utils.query_database import *
 
 app = FastAPI()
 origins = ["*"]
+#TODO Add precommit and clean completely the code
 
 app.add_middleware(
     CORSMiddleware,
@@ -18,16 +18,9 @@ app.add_middleware(
 
 
 def get_data(data, year=None, month=None, day=None):
-    my_database = mysql.connector.connect(
-        host=os.environ['DB_HOST'],
-        port=os.environ['DB_PORT'],
-        user=os.environ['DB_USER'],
-        password=os.environ['DB_PASS'],
-        database=os.environ['DB_NAME']
-    )
-
-    my_cursor = my_database.cursor()
-    object_query = DataQueryExtractor(my_database, my_cursor)
+    """Get data from the database according to the user's request."""
+    my_db = Database()
+    object_query = my_db.setup_query_extractor()
 
     content = None
     if data == 'last':
@@ -53,8 +46,7 @@ def get_data(data, year=None, month=None, day=None):
     elif data == 'lastyear':
         content = object_query.get_lastyear()
 
-    my_cursor.close()
-    my_database.close()
+    my_db.close_connection()
 
     if content:
         return content
@@ -62,9 +54,10 @@ def get_data(data, year=None, month=None, day=None):
 
 
 
-# Get the last data row from the database.
+
 @app.get("/")
 async def get_last_data():
+    """Get the last data row from the database."""
     content = get_data('last')
 
     return Response(content=json.dumps(
@@ -77,11 +70,10 @@ async def get_last_data():
 
 
 
-# Get stats from the database.
-# - The total amount of rows in the db
-# - The time of the last data entry
+
 @app.get("/stats")
 async def get_stats():
+    """Get the stats from the database : total amount of rows and last data entry."""
     content = get_data('stats')
     return Response(content=json.dumps(
         content,
@@ -93,9 +85,10 @@ async def get_stats():
 
 
 
-# Get last day data (last 24 hours).
+
 @app.get("/lastday")
 async def get_lastday():
+    """Get the last day data from the database."""
     content = get_data('lastday')
     return Response(content=json.dumps(
         content,
@@ -107,9 +100,10 @@ async def get_lastday():
 
 
 
-# Get last month data (last 30 days).
+
 @app.get("/lastmonth")
 async def get_lastmonth():
+    """Get the last month data from the database."""
     content = get_data('lastmonth')
     return Response(content=json.dumps(
         content,
@@ -122,9 +116,10 @@ async def get_lastmonth():
 
 
 
-# Get last year data (last 365 days).
+
 @app.get("/lastyear")
 async def get_lastyear():
+    """Get the last year data from the database."""
     content = get_data('lastyear')
     return Response(content=json.dumps(
         content,
@@ -136,9 +131,10 @@ async def get_lastyear():
 
 
 
-# Get all of the data from the database.
+
 @app.get("/all")
 async def get_alldb_data():
+    """Get all the data from the database."""
     content = get_data('all')
 
     return Response(content=json.dumps(
@@ -150,9 +146,10 @@ async def get_alldb_data():
     ).encode("utf-8"), status_code=200, media_type="application/json")
 
 
-# Get today's data from the database.
+
 @app.get("/today")
 async def get_todaydb_data():
+    """Get the data from the database for the current day."""
     content = get_data('today')
 
     return Response(content=json.dumps(
@@ -164,9 +161,10 @@ async def get_todaydb_data():
     ).encode("utf-8"), status_code=200, media_type="application/json")
 
 
-# Get this week's data from the database.
+
 @app.get("/week")
 async def get_weekly_data():
+    """Get the data from the database for the last week."""
     content = get_data('week')
 
     return Response(content=json.dumps(
@@ -178,9 +176,10 @@ async def get_weekly_data():
     ).encode("utf-8"), status_code=200, media_type="application/json")
 
 
-# Get the specified year's data from the database.
+
 @app.get("/{year}")
 async def get_year_data(year):
+    """Get the specified year's data from the database."""
     content = get_data('year', year)
 
     return Response(content=json.dumps(
@@ -192,9 +191,10 @@ async def get_year_data(year):
     ).encode("utf-8"), status_code=200, media_type="application/json")
 
 
-# Get the specified year-month's data from the database.
+
 @app.get("/{year}/{month}")
 async def get_year_month_data(year, month):
+    """Get the specified year-month's data from the database."""
     content = get_data('year-month', year, month)
 
     return Response(content=json.dumps(
@@ -206,9 +206,10 @@ async def get_year_month_data(year, month):
     ).encode("utf-8"), status_code=200, media_type="application/json")
 
 
-# Get the specified year-month-day's data from the database.
+
 @app.get("/{year}/{month}/{day}")
 async def get_year_month_day_data(year, month, day):
+    """Get the specified year-month-day's data from the database."""
     content = get_data('year-month-day', year, month, day)
 
     return Response(content=json.dumps(

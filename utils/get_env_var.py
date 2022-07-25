@@ -1,3 +1,4 @@
+"""Loads the credentials of the database from a local file (local deployment) or from the heroku credentials (real deployment)."""
 import os
 
 from dotenv import load_dotenv

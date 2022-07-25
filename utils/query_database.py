@@ -1,7 +1,39 @@
+"""Script that defines all functions to query data from the database."""
 import datetime
+import mysql.connector
+from utils.get_env_var import *
+
+class Database:
+    def __init__(self):
+        self.database = mysql.connector.connect(
+        host=os.environ['DB_HOST'],
+        port=os.environ['DB_PORT'],
+        user=os.environ['DB_USER'],
+        password=os.environ['DB_PASS'],
+        database=os.environ['DB_NAME']
+    )
+        self.cursor = self.database.cursor()
+
+    def setup_query_extractor(self):
+        return DataQueryExtractor(self.database, self.cursor)
+
+    def update_database(self, query, data):
+        self.cursor.execute(query, data)
+        self.database.commit()
+
+    def close_connection(self):
+        self.database.close()
+        self.cursor.close()
 
 
-def row_formatting(data, cnt):
+
+def row_formatting(data, cnt: int):
+    """
+    Formats the data to be inserted into the database to create a new row.
+    :param data: The data to be formatted.
+    :param cnt: number of data points in the database
+    :return: formatted data and the cnt value
+    """
     date_of_row = data[0]
 
     garage_row_queried = {
