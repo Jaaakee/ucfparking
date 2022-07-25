@@ -71,9 +71,9 @@ class Database:
         """Set the query extractor."""
         return DataQueryExtractor(self.database, self.cursor)
 
-    def update_database(self, query, data):
+    def update_database(self, query, *args):
         """Update the database."""
-        self.cursor.execute(query, data)
+        self.cursor.execute(query, *args)
         self.database.commit()
 
     def close_connection(self):
