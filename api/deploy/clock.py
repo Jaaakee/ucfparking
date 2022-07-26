@@ -1,4 +1,4 @@
-"""Schedule a cron job."""
+"""Schedule a cron job running the scraper."""
 from apscheduler.schedulers.blocking import BlockingScheduler
 from main import main
 
