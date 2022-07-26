@@ -16,3 +16,5 @@ batch_size = 64
 learning_rate = 0.001  # 0.05
 loss = "mse"
 lists_garages_to_train = ["A", "Libra"]
+number_of_hours_to_predict = 72
+prediction_showing = True
