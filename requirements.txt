@@ -14,3 +14,4 @@ black
 pydocstyle
 mypy
 isort
+joblib

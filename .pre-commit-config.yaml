@@ -1,6 +1,6 @@
 # https://pre-commit.com
 default_stages: [commit, manual]
-files: api/deploy/
+files: api/predictions/
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.0.1
