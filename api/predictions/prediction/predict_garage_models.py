@@ -18,6 +18,7 @@ from api.predictions.config import (
     garage_Libra_total_capacity,
     lists_garages_to_train,
     n_features,
+    n_steps_in,
     n_steps_out,
     number_of_hours_to_predict,
     prediction_showing,
@@ -87,21 +88,31 @@ def predict_next_three_days(model, scaler, data):
     predictions = []
     for index in range(number_of_hours_to_predict // n_steps_out):
         if index == 0:
-            next_hours_processed = scaler.transform(data[-n_steps_out:].reshape(-1, 1))
+            next_hours_processed = scaler.transform(data[-n_steps_in:].reshape(-1, 1))
         else:
-            next_hours_processed = scaler.transform(
-                np.array(predictions[-n_steps_out:])[0].reshape(-1, 1)
-            )
+            len_predictions = len(predictions)
+            if len_predictions >= n_steps_in:
+                next_hours_processed = scaler.transform(
+                    np.array(predictions[-n_steps_in:]).reshape(-1, 1)
+                )
+            else:
+                needed_input_data_points = n_steps_in - len_predictions
+                input_data_part_list = list(data[-needed_input_data_points:].squeeze())
+                predictions_part_list = predictions
+                input_data_part_list.extend(predictions_part_list)
+                next_hours_processed = scaler.transform(
+                    np.array(input_data_part_list).reshape(-1, 1)
+                )
 
         new_next_hours_processed = next_hours_processed.reshape(
             (next_hours_processed.shape[0], next_hours_processed.shape[1], n_features)
         )
 
-        print(f"Values {n_steps_out} hours (data points) to predict", new_next_hours_processed)
-        print(f"Shape {n_steps_out} hours (data points) to predict", new_next_hours_processed.shape)
-
-        result = model.predict(new_next_hours_processed.reshape(1, n_steps_out, 1))
-        predictions.append(list(inverse_transform(result, scaler)))
+        print("Used for prediction at index", index, new_next_hours_processed)
+        result = model.predict(new_next_hours_processed.reshape(1, n_steps_in, 1))
+        prediction_list = list(inverse_transform(result, scaler))[0]
+        predictions = [y for x in [predictions, prediction_list] for y in x]
+        print(index, predictions)
 
     return predictions
 
@@ -193,12 +204,10 @@ def main():
             model, scaler, garage_time_series_spaces_available_processed
         )
 
-        reformatted_predictions = []
-        for index, _ in enumerate(predictions):
-            prediction_list = predictions[index][0]
-            reformatted_predictions = [
-                y for x in [reformatted_predictions, prediction_list] for y in x
-            ]
+        reformatted_predictions = predictions
+        for index, prediction_point in enumerate(reformatted_predictions):
+            if reformatted_predictions[index] > main_garage_dictionary[garage]["capacity"]:
+                reformatted_predictions[index] = main_garage_dictionary[garage]["capacity"]
 
         print(f"{number_of_hours_to_predict} prediction data values", reformatted_predictions)
         times_corresponding_to_predictions = []
@@ -218,9 +227,9 @@ def main():
                 "-r",
             )
             plt.plot(times_corresponding_to_predictions, reformatted_predictions, "-b")
-            plt.xlabel("Date (Time series)")
-            plt.ylabel("Spaces Available")
-            plt.legend(["Raw", "Processed"])
+            plt.xlabel("Time")
+            plt.ylabel("Available parking spaces")
+            plt.legend(["Known", "Predicted"])
             plt.show()
 
 
