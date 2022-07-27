@@ -4,7 +4,7 @@ import datetime
 from utils.query_database import Database
 
 
-def main():
+def fill_missing_dates_main():
     """Fill missing dates from the API."""
     # Setup the database and query object.
     my_db = Database()
@@ -51,4 +51,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    fill_missing_dates_main()
