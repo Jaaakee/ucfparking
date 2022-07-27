@@ -53,7 +53,7 @@ def get_data(data, year=None, month=None, day=None):
 
 
 @app.get("/")
-async def get_last_data(cache=True):
+async def get_last_data(cache: bool = True):
     """Get the last data row from the database."""
     if not cache:
         content = get_data("last")
@@ -74,7 +74,7 @@ async def get_last_data(cache=True):
 
 
 @app.get("/stats")
-async def get_stats(cache=True):
+async def get_stats(cache: bool = True):
     """Get the stats from the database : total amount of rows and last data entry."""
     if not cache:
         content = get_data("stats")
@@ -95,7 +95,7 @@ async def get_stats(cache=True):
 
 
 @app.get("/lastday")
-async def get_lastday(cache=True):
+async def get_lastday(cache: bool = True):
     """Get the last day data from the database."""
     if not cache:
         content = get_data("lastday")
@@ -116,7 +116,7 @@ async def get_lastday(cache=True):
 
 
 @app.get("/lastmonth")
-async def get_lastmonth(cache=True):
+async def get_lastmonth(cache: bool = True):
     """Get the last month data from the database."""
     if not cache:
         content = get_data("lastmonth")
@@ -137,7 +137,7 @@ async def get_lastmonth(cache=True):
 
 
 @app.get("/lastyear")
-async def get_lastyear(cache=True):
+async def get_lastyear(cache: bool = True):
     """Get the last year data from the database."""
     if not cache:
         content = get_data("lastyear")
@@ -158,7 +158,7 @@ async def get_lastyear(cache=True):
 
 
 @app.get("/all")
-async def get_alldb_data(cache=True):
+async def get_alldb_data(cache: bool = True):
     """Get all the data from the database."""
     if not cache:
         content = get_data("all")
@@ -179,7 +179,7 @@ async def get_alldb_data(cache=True):
 
 
 @app.get("/today")
-async def get_todaydb_data(cache=True):
+async def get_todaydb_data(cache: bool = True):
     """Get the data from the database for the current day."""
     if not cache:
         content = get_data("today")
@@ -200,7 +200,7 @@ async def get_todaydb_data(cache=True):
 
 
 @app.get("/week")
-async def get_weekly_data(cache=True):
+async def get_weekly_data(cache: bool = True):
     """Get the data from the database for the last week."""
     if not cache:
         content = get_data("week")
