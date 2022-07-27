@@ -1,5 +1,4 @@
 .idea
-content/
 # dependencies
 __pycache__
 /node_modules
