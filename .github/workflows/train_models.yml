@@ -1,9 +1,8 @@
 name: "garages_training"
 
 on:
-  # Triggers the workflow every 1 minute
   schedule:
-    - cron: "*/1 * * * *"
+  - cron: "*/1 * * * *"
 jobs:
   training:
     runs-on: ubuntu-latest
