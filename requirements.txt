@@ -15,4 +15,3 @@ pydocstyle
 mypy
 isort
 joblib
-tensorflow
