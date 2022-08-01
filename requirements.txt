@@ -8,13 +8,7 @@ requests
 bs4
 APScheduler
 matplotlib
-pre-commit
-flake8
-black
-pydocstyle
-mypy
-isort
 joblib
 scikit-learn
 keras
-tensorflow-cpu
+tensorflow-cpu==2.5
