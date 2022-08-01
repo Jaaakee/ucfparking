@@ -167,7 +167,7 @@ def main():
         )
 
         # Save the model only if performance is better than the previous one.
-        # TODO ADD PERFORMANCE CHECK WITH JSON FILE
+        # TODO ADD PERFORMANCE CHECK WITH JSON FILE to make sure nan values are not there in the model data
         compiled_model.save(f"../output_dir_models/{garage}_model.h5")
         scaler_filename = f"../output_dir_models/{garage}_min_max_scaler.h5"
         joblib.dump(sc, scaler_filename)
