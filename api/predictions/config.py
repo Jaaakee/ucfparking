@@ -12,7 +12,7 @@ validation_size = 0.2
 
 n_steps_in = 24
 n_steps_out = 24
-nber_epochs = 15
+nber_epochs = 1
 batch_size = 32
 learning_rate = 0.01  # 0.05
 loss = "mse"
