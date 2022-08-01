@@ -16,3 +16,4 @@ mypy
 isort
 joblib
 tensorflow
+scikit-learn
