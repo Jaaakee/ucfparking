@@ -6,7 +6,7 @@ This project makes it easy to view parking garage space availability on the Univ
 - 🚀 Hourly parking data scraped since March 21st, 2021!
 - 🖥️ Public API with access to a bunch of methods. [Learn more!](#api-routes)
 - 📦 Out of the box included dashboard with various customizable sorting and viewing options.
-- 📱 Mobile support!
+- 📱 Mobile support.
 ## Installation
 Before running, there are a few environment variables in this project that I use to deploy easily:
 - `DB_HOST` - your database's host address
