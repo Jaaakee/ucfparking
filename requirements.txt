@@ -11,4 +11,4 @@ matplotlib
 joblib
 scikit-learn
 keras
-tensorflow-cpu==2.5
+tensorflow-cpu
