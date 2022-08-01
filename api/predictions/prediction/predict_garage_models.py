@@ -1,5 +1,5 @@
 """Predict the next 3 days of available spaces for all garages."""
-
+import sys
 from datetime import timedelta
 
 import joblib
@@ -28,6 +28,8 @@ from api.predictions.visualize_garages_data import (
     get_garages_data_for_predictions,
     visualize_and_process_garage,
 )
+
+sys.path.append("./")
 
 # def forecast_lstm(model, X, n_batch):
 #     """Make one forecast with an LSTM."""
