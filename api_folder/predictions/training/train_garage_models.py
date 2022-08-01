@@ -1,4 +1,6 @@
 """Train a LSTM model on all garage datasets."""
+import sys
+
 import joblib
 from keras.layers import LSTM, Bidirectional, Dense
 from keras.models import Sequential
@@ -29,6 +31,8 @@ from api_folder.predictions.visualize_garages_data import (
     get_garages_data_for_predictions,
     visualize_and_process_garage,
 )
+
+sys.path.append("../../../")
 
 
 def split_sequence(sequence, n_steps_in, n_steps_out):
