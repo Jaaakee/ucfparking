@@ -1,8 +1,10 @@
 name: "garages_training"
 
 on:
+  push:
+    branches: [ master ]
   schedule:
-  - cron: "*/1 * * * *"
+  - cron: "*/5 * * * *"
 jobs:
   training:
     runs-on: ubuntu-latest
