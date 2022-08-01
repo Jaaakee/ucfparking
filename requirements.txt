@@ -15,5 +15,5 @@ pydocstyle
 mypy
 isort
 joblib
-tensorflow
 scikit-learn
+keras

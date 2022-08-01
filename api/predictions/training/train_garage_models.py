@@ -1,10 +1,10 @@
 """Train a LSTM model on all garage datasets."""
 import joblib
-import tensorflow
 from keras.layers import LSTM, Bidirectional, Dense
 from keras.models import Sequential
 from numpy import array
 from sklearn.preprocessing import MinMaxScaler
+from tensorflow.keras.optimizers import Adam
 
 from api.predictions.config import (
     batch_size,
@@ -60,7 +60,7 @@ def define_model():
     )
     model.add(LSTM(100, activation="relu"))
     model.add(Dense(n_steps_out))
-    optimizer = tensorflow.keras.optimizers.Adam(learning_rate=learning_rate)
+    optimizer = Adam(learning_rate=learning_rate)
     model.compile(optimizer=optimizer, loss=loss)
     return model
 

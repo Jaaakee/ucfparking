@@ -12,7 +12,9 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Install dependencies
-      run: pip install -r requirements.txt
+      run: |
+        pip install tensorflow
+        pip install -r requirements.txt
     - name: Run a one-line script
       run: python ./api/predictions/training/train_garage_models.py
     - name: switching from HTTPS to SSH
