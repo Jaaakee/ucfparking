@@ -6,7 +6,7 @@ from numpy import array
 from sklearn.preprocessing import MinMaxScaler
 from tensorflow.keras.optimizers import Adam
 
-from api.predictions.config import (
+from api_folder.predictions.config import (
     batch_size,
     garage_A_total_capacity,
     garage_B_total_capacity,
@@ -24,8 +24,8 @@ from api.predictions.config import (
     nber_epochs,
     validation_size,
 )
-from api.predictions.utils import processing_data
-from api.predictions.visualize_garages_data import (
+from api_folder.predictions.utils import processing_data
+from api_folder.predictions.visualize_garages_data import (
     get_garages_data_for_predictions,
     visualize_and_process_garage,
 )
@@ -167,7 +167,8 @@ def main():
         )
 
         # Save the model only if performance is better than the previous one.
-        # TODO ADD PERFORMANCE CHECK WITH JSON FILE to make sure nan values are not there in the model data
+        # TODO ADD PERFORMANCE CHECK WITH JSON FILE to make sure nan values are not there in the model data ; CAN ALSO CHECK PERFORAMNCE WITH JSON FILE INSIDE GITHUB
+        # TODO CREATE ENDPOINT FOR PREDICTION DATA (MODELS ARE READY AND RETRAINED)
         compiled_model.save(f"../output_dir_models/{garage}_model.h5")
         scaler_filename = f"../output_dir_models/{garage}_min_max_scaler.h5"
         joblib.dump(sc, scaler_filename)
