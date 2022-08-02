@@ -17,7 +17,7 @@ jobs:
         pip install -r requirements.txt
         python -m pip install -e .
     - name: Run a one-line script
-      run: python -m ./api/predictions/training/train_garage_models.py
+      run: python ./api/predictions/training/train_garage_models.py
     - name: switching from HTTPS to SSH
       run: git remote set-url origin git@github.com:jakeva/ucfparking.git
     - name: check for changes
