@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from utils.query_database import Database
 
-from api_folder.predictions.config import (
+from api.predictions.config import (
     garage_A_total_capacity,
     garage_B_total_capacity,
     garage_C_total_capacity,

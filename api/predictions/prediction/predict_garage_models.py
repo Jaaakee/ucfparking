@@ -7,7 +7,7 @@ from keras.models import load_model
 from matplotlib import pyplot as plt
 from numpy import array
 
-from api_folder.predictions.config import (
+from api.predictions.config import (
     garage_A_total_capacity,
     garage_B_total_capacity,
     garage_C_total_capacity,
@@ -22,8 +22,8 @@ from api_folder.predictions.config import (
     number_of_hours_to_predict,
     prediction_showing,
 )
-from api_folder.predictions.utils import processing_data
-from api_folder.predictions.visualize_garages_data import (
+from api.predictions.utils import processing_data
+from api.predictions.visualize_garages_data import (
     get_garages_data_for_predictions,
     visualize_and_process_garage,
 )

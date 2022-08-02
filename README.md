@@ -22,7 +22,7 @@ Once you've set that all up, you can begin to start scraping data and setup your
 
 To run the web scraping script, run the following command inside the project:
 ```bash
-  python api_folder/deploy/main.py
+  python api/deploy/main.py
 ```
 
 To get the API to work, take a look at the [Procfile](https://github.com/JakeValenzuela/ucfparking/blob/master/Procfile) and how we use [Uvicorn](https://www.uvicorn.org/) to run it.

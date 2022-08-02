@@ -6,7 +6,7 @@ from numpy import array
 from sklearn.preprocessing import MinMaxScaler
 from tensorflow.keras.optimizers import Adam
 
-from api_folder.predictions.config import (
+from api.predictions.config import (
     batch_size,
     garage_A_total_capacity,
     garage_B_total_capacity,
@@ -24,8 +24,8 @@ from api_folder.predictions.config import (
     nber_epochs,
     validation_size,
 )
-from api_folder.predictions.utils import processing_data
-from api_folder.predictions.visualize_garages_data import (
+from api.predictions.utils import processing_data
+from api.predictions.visualize_garages_data import (
     get_garages_data_for_predictions,
     visualize_and_process_garage,
 )
