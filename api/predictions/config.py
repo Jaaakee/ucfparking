@@ -12,10 +12,10 @@ validation_size = 0.2
 
 n_steps_in = 24
 n_steps_out = 24
-nber_epochs = 1
+nber_epochs = 20
 batch_size = 32
 learning_rate = 0.01  # 0.05
 loss = "mse"
-lists_garages_to_train = ["A"]  # , "B", "C", "D", "H", "I", "Libra"]
+lists_garages_to_train = ["A", "B", "C", "D", "H", "I", "Libra"]
 number_of_hours_to_predict = 24
 prediction_showing = True
