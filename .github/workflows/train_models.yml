@@ -33,9 +33,9 @@ jobs:
         git commit -m "Upload the updated trained models for each garage."
 #    - name: fetch from master
 #      run: git fetch origin master
-#    - name: push code to master
-#      run: git push origin HEAD:master
-    - name: Push changes # push the output folder to your repo
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+    - name: push code to master
+      run: git push origin HEAD:master
+#    - name: Push changes # push the output folder to your repo
+#      uses: ad-m/github-push-action@master
+#      with:
+#        github_token: ${{ secrets.GITHUB_TOKEN }}
