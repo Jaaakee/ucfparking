@@ -169,7 +169,7 @@ def main():
         # Save the model only if performance is better than the previous one.
         # TODO ADD PERFORMANCE CHECK WITH JSON FILE to make sure nan values are not there in the model data ; CAN ALSO CHECK PERFORAMNCE WITH JSON FILE INSIDE GITHUB
         # TODO CREATE ENDPOINT FOR PREDICTION DATA (MODELS ARE READY AND RETRAINED)
-        # TODO Need to make work the github action for training (ModuleNotFoundError)
+        # TODO Need to make work the github action for training (nothing to commit, working tree clean)
         # TODO Only put schedule and not push trigger and modify it to #'30 2 * * 3'
         # TODO Re-enable the first linting  github action
         compiled_model.save(f"../output_dir_models/{garage}_model.h5")

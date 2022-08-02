@@ -16,6 +16,6 @@ nber_epochs = 1
 batch_size = 32
 learning_rate = 0.01  # 0.05
 loss = "mse"
-lists_garages_to_train = ["A", "B", "C", "D", "H", "I", "Libra"]
+lists_garages_to_train = ["A"]  # , "B", "C", "D", "H", "I", "Libra"]
 number_of_hours_to_predict = 24
 prediction_showing = True

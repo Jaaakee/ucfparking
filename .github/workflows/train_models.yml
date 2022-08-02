@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: Install dependencies and build package
       run: |
         pip install tensorflow
@@ -18,8 +18,8 @@ jobs:
         python -m pip install -e .
     - name: Run a one-line script
       run: python ./api/predictions/training/train_garage_models.py
-    - name: switching from HTTPS to SSH
-      run: git remote set-url origin git@github.com:jakeva/ucfparking.git
+#    - name: switching from HTTPS to SSH
+#      run: git remote set-url origin git@github.com:jakeva/ucfparking.git
     - name: check for changes
       run: git status
     - name: stage changed files
@@ -29,7 +29,7 @@ jobs:
         git config --global user.email "jakev224@gmail.com"
         git config --global user.name "Jake"
         git commit -m "Upload the updated trained models for each garage."
-    - name: fetch from master
-      run: git fetch origin master
+#    - name: fetch from master
+#      run: git fetch origin master
     - name: push code to master
       run: git push origin HEAD:master
