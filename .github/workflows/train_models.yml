@@ -18,8 +18,8 @@ jobs:
         python -m pip install -e .
     - name: Run a one-line script
       run: |
-        python ./api/predictions/training/train_garage_models.py
-        touch ./bonjour.txt
+        cd api/predictions/training/
+        python ./train_garage_models.py
 #    - name: switching from HTTPS to SSH
 #      run: git remote set-url origin git@github.com:jakeva/ucfparking.git
     - name: check for changes
