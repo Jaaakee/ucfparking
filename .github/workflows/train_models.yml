@@ -3,18 +3,19 @@ name: "garages_training"
 on:
   push:
     branches: [ master ]
-  schedule:
-  - cron: "*/5 * * * *"
+#  schedule:
+#  - cron: "30 2 * * 3"
 jobs:
   training:
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v1
-    - name: Install dependencies
+    - name: Install dependencies and build package
       run: |
         pip install tensorflow
         pip install -r requirements.txt
+        python -m pip install -e .
     - name: Run a one-line script
       run: python -m ./api/predictions/training/train_garage_models.py
     - name: switching from HTTPS to SSH
