@@ -1,5 +1,6 @@
 .idea
 content/
+api.egg-info/
 # dependencies
 __pycache__
 /node_modules
