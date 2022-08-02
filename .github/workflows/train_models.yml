@@ -25,7 +25,7 @@ jobs:
     - name: check for changes
       run: git status
     - name: stage changed files
-      run: git add ./api/predictions/output_dir_models/
+      run: git add .
     - name: commit changed files
       run: |
         git config --local user.email "jakev224@gmail.com"
