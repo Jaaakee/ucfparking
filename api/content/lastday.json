@@ -1,0 +1,1133 @@
+{
+   "count": 24, 
+   "data": [
+      {
+         "date_and_time": "2022-08-15 18:00:00", 
+         "garages": {
+            "A": {
+               "max_spaces": 1623, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1623
+            }, 
+            "B": {
+               "max_spaces": 1259, 
+               "percent_full": 11, 
+               "spaces_filled": 141, 
+               "spaces_left": 1118
+            }, 
+            "C": {
+               "max_spaces": 1852, 
+               "percent_full": 0, 
+               "spaces_filled": 6, 
+               "spaces_left": 1846
+            }, 
+            "D": {
+               "max_spaces": 1241, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1543
+            }, 
+            "H": {
+               "max_spaces": 1284, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1284
+            }, 
+            "I": {
+               "max_spaces": 1231, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1231
+            }, 
+            "Libra": {
+               "max_spaces": 1007, 
+               "percent_full": 5, 
+               "spaces_filled": 52, 
+               "spaces_left": 955
+            }
+         }
+      }, 
+      {
+         "date_and_time": "2022-08-15 17:00:00", 
+         "garages": {
+            "A": {
+               "max_spaces": 1623, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1623
+            }, 
+            "B": {
+               "max_spaces": 1259, 
+               "percent_full": 11, 
+               "spaces_filled": 141, 
+               "spaces_left": 1118
+            }, 
+            "C": {
+               "max_spaces": 1852, 
+               "percent_full": 0, 
+               "spaces_filled": 3, 
+               "spaces_left": 1849
+            }, 
+            "D": {
+               "max_spaces": 1241, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1472
+            }, 
+            "H": {
+               "max_spaces": 1284, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1284
+            }, 
+            "I": {
+               "max_spaces": 1231, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1231
+            }, 
+            "Libra": {
+               "max_spaces": 1007, 
+               "percent_full": 6, 
+               "spaces_filled": 59, 
+               "spaces_left": 948
+            }
+         }
+      }, 
+      {
+         "date_and_time": "2022-08-15 16:00:00", 
+         "garages": {
+            "A": {
+               "max_spaces": 1623, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1623
+            }, 
+            "B": {
+               "max_spaces": 1259, 
+               "percent_full": 11, 
+               "spaces_filled": 141, 
+               "spaces_left": 1118
+            }, 
+            "C": {
+               "max_spaces": 1852, 
+               "percent_full": 0, 
+               "spaces_filled": 3, 
+               "spaces_left": 1849
+            }, 
+            "D": {
+               "max_spaces": 1241, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1411
+            }, 
+            "H": {
+               "max_spaces": 1284, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1284
+            }, 
+            "I": {
+               "max_spaces": 1231, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1231
+            }, 
+            "Libra": {
+               "max_spaces": 1007, 
+               "percent_full": 7, 
+               "spaces_filled": 66, 
+               "spaces_left": 941
+            }
+         }
+      }, 
+      {
+         "date_and_time": "2022-08-15 15:00:00", 
+         "garages": {
+            "A": {
+               "max_spaces": 1623, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1623
+            }, 
+            "B": {
+               "max_spaces": 1259, 
+               "percent_full": 11, 
+               "spaces_filled": 141, 
+               "spaces_left": 1118
+            }, 
+            "C": {
+               "max_spaces": 1852, 
+               "percent_full": 0, 
+               "spaces_filled": 3, 
+               "spaces_left": 1849
+            }, 
+            "D": {
+               "max_spaces": 1241, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1361
+            }, 
+            "H": {
+               "max_spaces": 1284, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1284
+            }, 
+            "I": {
+               "max_spaces": 1231, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1231
+            }, 
+            "Libra": {
+               "max_spaces": 1007, 
+               "percent_full": 7, 
+               "spaces_filled": 72, 
+               "spaces_left": 935
+            }
+         }
+      }, 
+      {
+         "date_and_time": "2022-08-15 14:00:00", 
+         "garages": {
+            "A": {
+               "max_spaces": 1623, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1623
+            }, 
+            "B": {
+               "max_spaces": 1259, 
+               "percent_full": 11, 
+               "spaces_filled": 141, 
+               "spaces_left": 1118
+            }, 
+            "C": {
+               "max_spaces": 1852, 
+               "percent_full": 0, 
+               "spaces_filled": 3, 
+               "spaces_left": 1849
+            }, 
+            "D": {
+               "max_spaces": 1241, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1330
+            }, 
+            "H": {
+               "max_spaces": 1284, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1284
+            }, 
+            "I": {
+               "max_spaces": 1231, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1231
+            }, 
+            "Libra": {
+               "max_spaces": 1007, 
+               "percent_full": 7, 
+               "spaces_filled": 75, 
+               "spaces_left": 932
+            }
+         }
+      }, 
+      {
+         "date_and_time": "2022-08-15 13:00:00", 
+         "garages": {
+            "A": {
+               "max_spaces": 1623, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1623
+            }, 
+            "B": {
+               "max_spaces": 1259, 
+               "percent_full": 11, 
+               "spaces_filled": 141, 
+               "spaces_left": 1118
+            }, 
+            "C": {
+               "max_spaces": 1852, 
+               "percent_full": 0, 
+               "spaces_filled": 3, 
+               "spaces_left": 1849
+            }, 
+            "D": {
+               "max_spaces": 1241, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1326
+            }, 
+            "H": {
+               "max_spaces": 1284, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1284
+            }, 
+            "I": {
+               "max_spaces": 1231, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1231
+            }, 
+            "Libra": {
+               "max_spaces": 1007, 
+               "percent_full": 8, 
+               "spaces_filled": 76, 
+               "spaces_left": 931
+            }
+         }
+      }, 
+      {
+         "date_and_time": "2022-08-15 12:00:00", 
+         "garages": {
+            "A": {
+               "max_spaces": 1623, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1623
+            }, 
+            "B": {
+               "max_spaces": 1259, 
+               "percent_full": 11, 
+               "spaces_filled": 141, 
+               "spaces_left": 1118
+            }, 
+            "C": {
+               "max_spaces": 1852, 
+               "percent_full": 0, 
+               "spaces_filled": 3, 
+               "spaces_left": 1849
+            }, 
+            "D": {
+               "max_spaces": 1241, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1262
+            }, 
+            "H": {
+               "max_spaces": 1284, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1284
+            }, 
+            "I": {
+               "max_spaces": 1231, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1231
+            }, 
+            "Libra": {
+               "max_spaces": 1007, 
+               "percent_full": 9, 
+               "spaces_filled": 86, 
+               "spaces_left": 921
+            }
+         }
+      }, 
+      {
+         "date_and_time": "2022-08-15 11:00:00", 
+         "garages": {
+            "A": {
+               "max_spaces": 1623, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1623
+            }, 
+            "B": {
+               "max_spaces": 1259, 
+               "percent_full": 11, 
+               "spaces_filled": 141, 
+               "spaces_left": 1118
+            }, 
+            "C": {
+               "max_spaces": 1852, 
+               "percent_full": 0, 
+               "spaces_filled": 2, 
+               "spaces_left": 1850
+            }, 
+            "D": {
+               "max_spaces": 1241, 
+               "percent_full": 1, 
+               "spaces_filled": 8, 
+               "spaces_left": 1233
+            }, 
+            "H": {
+               "max_spaces": 1284, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1284
+            }, 
+            "I": {
+               "max_spaces": 1231, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1231
+            }, 
+            "Libra": {
+               "max_spaces": 1007, 
+               "percent_full": 8, 
+               "spaces_filled": 82, 
+               "spaces_left": 925
+            }
+         }
+      }, 
+      {
+         "date_and_time": "2022-08-15 10:00:00", 
+         "garages": {
+            "A": {
+               "max_spaces": 1623, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1623
+            }, 
+            "B": {
+               "max_spaces": 1259, 
+               "percent_full": 11, 
+               "spaces_filled": 141, 
+               "spaces_left": 1118
+            }, 
+            "C": {
+               "max_spaces": 1852, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1853
+            }, 
+            "D": {
+               "max_spaces": 1241, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1245
+            }, 
+            "H": {
+               "max_spaces": 1284, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1284
+            }, 
+            "I": {
+               "max_spaces": 1231, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1231
+            }, 
+            "Libra": {
+               "max_spaces": 1007, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1339
+            }
+         }
+      }, 
+      {
+         "date_and_time": "2022-08-15 09:00:00", 
+         "garages": {
+            "A": {
+               "max_spaces": 1623, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1623
+            }, 
+            "B": {
+               "max_spaces": 1259, 
+               "percent_full": 11, 
+               "spaces_filled": 141, 
+               "spaces_left": 1118
+            }, 
+            "C": {
+               "max_spaces": 1852, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1853
+            }, 
+            "D": {
+               "max_spaces": 1241, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1242
+            }, 
+            "H": {
+               "max_spaces": 1284, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1284
+            }, 
+            "I": {
+               "max_spaces": 1231, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1231
+            }, 
+            "Libra": {
+               "max_spaces": 1007, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1343
+            }
+         }
+      }, 
+      {
+         "date_and_time": "2022-08-15 08:00:00", 
+         "garages": {
+            "A": {
+               "max_spaces": 1623, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1623
+            }, 
+            "B": {
+               "max_spaces": 1259, 
+               "percent_full": 11, 
+               "spaces_filled": 141, 
+               "spaces_left": 1118
+            }, 
+            "C": {
+               "max_spaces": 1852, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1852
+            }, 
+            "D": {
+               "max_spaces": 1241, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1241
+            }, 
+            "H": {
+               "max_spaces": 1284, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1284
+            }, 
+            "I": {
+               "max_spaces": 1231, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1231
+            }, 
+            "Libra": {
+               "max_spaces": 1007, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1347
+            }
+         }
+      }, 
+      {
+         "date_and_time": "2022-08-15 07:00:00", 
+         "garages": {
+            "A": {
+               "max_spaces": 1623, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1623
+            }, 
+            "B": {
+               "max_spaces": 1259, 
+               "percent_full": 11, 
+               "spaces_filled": 141, 
+               "spaces_left": 1118
+            }, 
+            "C": {
+               "max_spaces": 1852, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1852
+            }, 
+            "D": {
+               "max_spaces": 1241, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1241
+            }, 
+            "H": {
+               "max_spaces": 1284, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1284
+            }, 
+            "I": {
+               "max_spaces": 1231, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1231
+            }, 
+            "Libra": {
+               "max_spaces": 1007, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1346
+            }
+         }
+      }, 
+      {
+         "date_and_time": "2022-08-15 06:00:00", 
+         "garages": {
+            "A": {
+               "max_spaces": 1623, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1623
+            }, 
+            "B": {
+               "max_spaces": 1259, 
+               "percent_full": 11, 
+               "spaces_filled": 141, 
+               "spaces_left": 1118
+            }, 
+            "C": {
+               "max_spaces": 1852, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1852
+            }, 
+            "D": {
+               "max_spaces": 1241, 
+               "percent_full": 0, 
+               "spaces_filled": 1, 
+               "spaces_left": 1240
+            }, 
+            "H": {
+               "max_spaces": 1284, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1284
+            }, 
+            "I": {
+               "max_spaces": 1231, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1231
+            }, 
+            "Libra": {
+               "max_spaces": 1007, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1345
+            }
+         }
+      }, 
+      {
+         "date_and_time": "2022-08-15 05:00:00", 
+         "garages": {
+            "A": {
+               "max_spaces": 1623, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1623
+            }, 
+            "B": {
+               "max_spaces": 1259, 
+               "percent_full": 11, 
+               "spaces_filled": 141, 
+               "spaces_left": 1118
+            }, 
+            "C": {
+               "max_spaces": 1852, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1852
+            }, 
+            "D": {
+               "max_spaces": 1241, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1241
+            }, 
+            "H": {
+               "max_spaces": 1284, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1284
+            }, 
+            "I": {
+               "max_spaces": 1231, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1231
+            }, 
+            "Libra": {
+               "max_spaces": 1007, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1345
+            }
+         }
+      }, 
+      {
+         "date_and_time": "2022-08-15 04:00:00", 
+         "garages": {
+            "A": {
+               "max_spaces": 1623, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1623
+            }, 
+            "B": {
+               "max_spaces": 1259, 
+               "percent_full": 11, 
+               "spaces_filled": 141, 
+               "spaces_left": 1118
+            }, 
+            "C": {
+               "max_spaces": 1852, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1852
+            }, 
+            "D": {
+               "max_spaces": 1241, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1432
+            }, 
+            "H": {
+               "max_spaces": 1284, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1284
+            }, 
+            "I": {
+               "max_spaces": 1231, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1231
+            }, 
+            "Libra": {
+               "max_spaces": 1007, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1342
+            }
+         }
+      }, 
+      {
+         "date_and_time": "2022-08-15 03:00:00", 
+         "garages": {
+            "A": {
+               "max_spaces": 1623, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1623
+            }, 
+            "B": {
+               "max_spaces": 1259, 
+               "percent_full": 11, 
+               "spaces_filled": 141, 
+               "spaces_left": 1118
+            }, 
+            "C": {
+               "max_spaces": 1852, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1852
+            }, 
+            "D": {
+               "max_spaces": 1241, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1429
+            }, 
+            "H": {
+               "max_spaces": 1284, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1284
+            }, 
+            "I": {
+               "max_spaces": 1231, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1231
+            }, 
+            "Libra": {
+               "max_spaces": 1007, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1342
+            }
+         }
+      }, 
+      {
+         "date_and_time": "2022-08-15 02:00:00", 
+         "garages": {
+            "A": {
+               "max_spaces": 1623, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1623
+            }, 
+            "B": {
+               "max_spaces": 1259, 
+               "percent_full": 11, 
+               "spaces_filled": 141, 
+               "spaces_left": 1118
+            }, 
+            "C": {
+               "max_spaces": 1852, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1852
+            }, 
+            "D": {
+               "max_spaces": 1241, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1428
+            }, 
+            "H": {
+               "max_spaces": 1284, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1284
+            }, 
+            "I": {
+               "max_spaces": 1231, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1231
+            }, 
+            "Libra": {
+               "max_spaces": 1007, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1340
+            }
+         }
+      }, 
+      {
+         "date_and_time": "2022-08-15 01:00:00", 
+         "garages": {
+            "A": {
+               "max_spaces": 1623, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1623
+            }, 
+            "B": {
+               "max_spaces": 1259, 
+               "percent_full": 11, 
+               "spaces_filled": 141, 
+               "spaces_left": 1118
+            }, 
+            "C": {
+               "max_spaces": 1852, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1852
+            }, 
+            "D": {
+               "max_spaces": 1241, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1415
+            }, 
+            "H": {
+               "max_spaces": 1284, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1284
+            }, 
+            "I": {
+               "max_spaces": 1231, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1231
+            }, 
+            "Libra": {
+               "max_spaces": 1007, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1335
+            }
+         }
+      }, 
+      {
+         "date_and_time": "2022-08-15 00:00:00", 
+         "garages": {
+            "A": {
+               "max_spaces": 1623, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1623
+            }, 
+            "B": {
+               "max_spaces": 1259, 
+               "percent_full": 11, 
+               "spaces_filled": 141, 
+               "spaces_left": 1118
+            }, 
+            "C": {
+               "max_spaces": 1852, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1852
+            }, 
+            "D": {
+               "max_spaces": 1241, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1392
+            }, 
+            "H": {
+               "max_spaces": 1284, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1284
+            }, 
+            "I": {
+               "max_spaces": 1231, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1231
+            }, 
+            "Libra": {
+               "max_spaces": 1007, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1332
+            }
+         }
+      }, 
+      {
+         "date_and_time": "2022-08-14 23:00:00", 
+         "garages": {
+            "A": {
+               "max_spaces": 1623, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1623
+            }, 
+            "B": {
+               "max_spaces": 1259, 
+               "percent_full": 11, 
+               "spaces_filled": 141, 
+               "spaces_left": 1118
+            }, 
+            "C": {
+               "max_spaces": 1852, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1852
+            }, 
+            "D": {
+               "max_spaces": 1241, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1372
+            }, 
+            "H": {
+               "max_spaces": 1284, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1284
+            }, 
+            "I": {
+               "max_spaces": 1231, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1231
+            }, 
+            "Libra": {
+               "max_spaces": 1007, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1330
+            }
+         }
+      }, 
+      {
+         "date_and_time": "2022-08-14 22:00:00", 
+         "garages": {
+            "A": {
+               "max_spaces": 1623, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1623
+            }, 
+            "B": {
+               "max_spaces": 1259, 
+               "percent_full": 11, 
+               "spaces_filled": 141, 
+               "spaces_left": 1118
+            }, 
+            "C": {
+               "max_spaces": 1852, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1852
+            }, 
+            "D": {
+               "max_spaces": 1241, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1359
+            }, 
+            "H": {
+               "max_spaces": 1284, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1284
+            }, 
+            "I": {
+               "max_spaces": 1231, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1231
+            }, 
+            "Libra": {
+               "max_spaces": 1007, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1322
+            }
+         }
+      }, 
+      {
+         "date_and_time": "2022-08-14 21:00:00", 
+         "garages": {
+            "A": {
+               "max_spaces": 1623, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1623
+            }, 
+            "B": {
+               "max_spaces": 1259, 
+               "percent_full": 11, 
+               "spaces_filled": 141, 
+               "spaces_left": 1118
+            }, 
+            "C": {
+               "max_spaces": 1852, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1852
+            }, 
+            "D": {
+               "max_spaces": 1241, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1346
+            }, 
+            "H": {
+               "max_spaces": 1284, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1284
+            }, 
+            "I": {
+               "max_spaces": 1231, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1231
+            }, 
+            "Libra": {
+               "max_spaces": 1007, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1311
+            }
+         }
+      }, 
+      {
+         "date_and_time": "2022-08-14 20:00:00", 
+         "garages": {
+            "A": {
+               "max_spaces": 1623, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1623
+            }, 
+            "B": {
+               "max_spaces": 1259, 
+               "percent_full": 11, 
+               "spaces_filled": 141, 
+               "spaces_left": 1118
+            }, 
+            "C": {
+               "max_spaces": 1852, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1852
+            }, 
+            "D": {
+               "max_spaces": 1241, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1340
+            }, 
+            "H": {
+               "max_spaces": 1284, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1284
+            }, 
+            "I": {
+               "max_spaces": 1231, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1231
+            }, 
+            "Libra": {
+               "max_spaces": 1007, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1305
+            }
+         }
+      }, 
+      {
+         "date_and_time": "2022-08-14 19:00:00", 
+         "garages": {
+            "A": {
+               "max_spaces": 1623, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1623
+            }, 
+            "B": {
+               "max_spaces": 1259, 
+               "percent_full": 11, 
+               "spaces_filled": 141, 
+               "spaces_left": 1118
+            }, 
+            "C": {
+               "max_spaces": 1852, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1852
+            }, 
+            "D": {
+               "max_spaces": 1241, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1324
+            }, 
+            "H": {
+               "max_spaces": 1284, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1284
+            }, 
+            "I": {
+               "max_spaces": 1231, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1231
+            }, 
+            "Libra": {
+               "max_spaces": 1007, 
+               "percent_full": 0, 
+               "spaces_filled": 0, 
+               "spaces_left": 1297
+            }
+         }
+      }
+   ]
+}
