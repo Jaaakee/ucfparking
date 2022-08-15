@@ -1,11 +1,8 @@
 name: "Update cached data"
 
 on:
-  push:
-    branches:
-      - master
-#  schedule:
-#  - cron: "0 * * * *" #https://crontab.guru/
+  schedule:
+  - cron: "0 * * * *" #https://crontab.guru/
 
 
 env:

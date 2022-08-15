@@ -31,8 +31,8 @@ jobs:
       run: git add .
     - name: commit changed files
       run: |
-        git config --local user.email "jakev224@gmail.com"
-        git config --local user.name "Jake"
+        git config --global user.email "jakev224@gmail.com"
+        git config --global user.name "Github Action Bot"
         git commit -m "Upload the updated trained models for each garage."
     - name: Push changes
       uses: ad-m/github-push-action@master
