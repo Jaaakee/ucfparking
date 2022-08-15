@@ -1,8 +1,11 @@
 name: "Update cached data"
 
 on:
-  schedule:
-  - cron: "2 * * * *"
+  push:
+    branches:
+      - master
+#  schedule:
+#  - cron: "2 * * * *"
 
 
 env:
@@ -31,8 +34,6 @@ jobs:
       run: git add .
     - name: commit changed files
       run: |
-        git config --local user.email "jakev224@gmail.com"
-        git config --local user.name "Jake"
         git commit -m "Update of the cached data."
     - name: Push changes
       uses: ad-m/github-push-action@master

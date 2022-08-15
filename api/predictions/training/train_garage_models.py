@@ -170,7 +170,7 @@ def main():
         # TODO ADD PERFORMANCE CHECK WITH JSON FILE to make sure nan values are not there in the model data ; CAN ALSO CHECK PERFORAMNCE WITH JSON FILE INSIDE GITHUB
         # TODO CREATE ENDPOINT FOR PREDICTION DATA (MODELS ARE READY AND RETRAINED)
         # TODO Check the endpoints to ensure the data is consistent
-        # TODO Re-enable the cache by caching info through github action :)
+        # TODO Re-enable the cache by caching info through github action :) TO CHECK at 9pm
         compiled_model.save(f"../output_dir_models/{garage}_model.h5")
         scaler_filename = f"../output_dir_models/{garage}_min_max_scaler.h5"
         joblib.dump(sc, scaler_filename)
