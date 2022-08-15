@@ -20,38 +20,12 @@ from api.predictions.config import (
     n_steps_in,
     n_steps_out,
     number_of_hours_to_predict,
-    prediction_showing,
 )
 from api.predictions.utils import processing_data
 from api.predictions.visualize_garages_data import (
     get_garages_data_for_predictions,
     visualize_and_process_garage,
 )
-
-# def forecast_lstm(model, X, n_batch):
-#     """Make one forecast with an LSTM."""
-#     # Reshape input pattern to [samples, timesteps, features]
-#     X = X.reshape(1, len(X), 1)
-#     # make forecast
-#     forecast = model.predict(X, batch_size=n_batch)
-#     # convert to array
-#     return [x for x in forecast[0, :]]
-#
-#
-# def make_forecasts(model, input_dataset, output_dataset, n_batch):
-#     """Make forecasts."""
-#     forecasts = []
-#     for i in range(len(input_dataset)):
-#         X, _ = (
-#             input_dataset[i, :],
-#             output_dataset[i, :],
-#         )
-#
-#         # make forecast
-#         forecast = forecast_lstm(model, X, n_batch)
-#         # store the forecast
-#         forecasts.append(forecast)
-#     return forecasts
 
 
 def inverse_transform(forecasts, scaler):
@@ -68,18 +42,6 @@ def inverse_transform(forecasts, scaler):
         # store
         inverted.append(inv_scale)
     return inverted
-
-
-# def evaluate_forecasts(forecasts, input_dataset, n_seq, scaler):
-#     """Evaluate the RMSE for each forecast time step."""
-#     for i in range(n_seq):
-#         actual = [input_dataset[i]]  # [row[i] for row in input_dataset]
-#         actual = inverse_transform(actual, scaler)
-#         # print('actual',actual)
-#         predicted = [forecasts[i]]
-#         # print('predicted', predicted)
-#         rmse = math.sqrt(mean_squared_error(actual, predicted))
-#         print("t+%d RMSE: %f" % ((i + 1), rmse))
 
 
 def predict_next_three_days(model, scaler, data):
@@ -107,16 +69,14 @@ def predict_next_three_days(model, scaler, data):
             (next_hours_processed.shape[0], next_hours_processed.shape[1], n_features)
         )
 
-        print("Used for prediction at index", index, new_next_hours_processed)
         result = model.predict(new_next_hours_processed.reshape(1, n_steps_in, 1))
         prediction_list = list(inverse_transform(result, scaler))[0]
         predictions = [y for x in [predictions, prediction_list] for y in x]
-        print(index, predictions)
 
     return predictions
 
 
-def main():
+def main(prediction_showing):
     """Get data from db and process Libra garage data."""
     (
         garage_A_time_series_dates,
@@ -135,6 +95,7 @@ def main():
         garage_Libra_time_series_spaces_available,
     ) = get_garages_data_for_predictions()
 
+    next_day_predictions = {}
     main_garage_dictionary = {
         "A": {
             "capacity": garage_A_total_capacity,
@@ -195,9 +156,8 @@ def main():
         )
 
         # Load model for predictions
-        model = load_model(f"../output_dir_models/{garage}_model.h5")
-        model.summary()
-        scaler = joblib.load(f"../output_dir_models/{garage}_min_max_scaler.h5")
+        model = load_model(f"api/predictions/output_dir_models/{garage}_model.h5")
+        scaler = joblib.load(f"api/predictions/output_dir_models/{garage}_min_max_scaler.h5")
 
         predictions = predict_next_three_days(
             model, scaler, garage_time_series_spaces_available_processed
@@ -205,12 +165,12 @@ def main():
 
         reformatted_predictions = predictions
         for index, prediction_point in enumerate(reformatted_predictions):
+
             if reformatted_predictions[index] > main_garage_dictionary[garage]["capacity"]:
                 reformatted_predictions[index] = main_garage_dictionary[garage]["capacity"]
+            reformatted_predictions[index] = int(reformatted_predictions[index])
 
-        print(f"{number_of_hours_to_predict} prediction data values", reformatted_predictions)
         times_corresponding_to_predictions = []
-
         for index in range(number_of_hours_to_predict):
             if index == 0:
                 given_time = garage_time_series_dates_processed[-1]
@@ -218,6 +178,9 @@ def main():
                 given_time = times_corresponding_to_predictions[-1]
             final_time = given_time + timedelta(hours=1)
             times_corresponding_to_predictions.append(final_time)
+            if str(final_time) not in next_day_predictions:
+                next_day_predictions[str(final_time)] = {}
+            next_day_predictions[str(final_time)][garage] = reformatted_predictions[index]
 
         if prediction_showing:
             plt.plot(
@@ -231,6 +194,8 @@ def main():
             plt.legend(["Known", "Predicted"])
             plt.show()
 
+    return next_day_predictions
+
 
 if __name__ == "__main__":
-    main()
+    next_day_predictions = main(prediction_showing=True)

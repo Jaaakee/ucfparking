@@ -5,6 +5,8 @@ from fastapi import FastAPI, Response
 from fastapi.middleware.cors import CORSMiddleware
 from utils.query_database import Database
 
+from api.predictions.prediction.predict_garage_models import main
+
 app = FastAPI()
 origins = ["*"]
 
@@ -50,6 +52,24 @@ def get_data(data, year=None, month=None, day=None):
 
     if content:
         return content
+
+
+@app.get("/predict_next_day")
+async def get_predictions():
+    """Predict Garage availability for next 24 hours."""
+    content = main(False)
+
+    return Response(
+        content=json.dumps(
+            content,
+            ensure_ascii=False,
+            allow_nan=False,
+            indent=3,
+            separators=(", ", ": "),
+        ).encode("utf-8"),
+        status_code=200,
+        media_type="application/json",
+    )
 
 
 @app.get("/")
