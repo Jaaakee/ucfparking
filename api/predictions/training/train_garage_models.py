@@ -1,5 +1,8 @@
 """Train a LSTM model on all garage datasets."""
+import json
+
 import joblib
+import numpy as np
 from keras.layers import LSTM, Bidirectional, Dense
 from keras.models import Sequential
 from numpy import array
@@ -156,7 +159,7 @@ def main():
 
         # Define model, train it on the data and save it for prediction later.
         compiled_model = define_model()
-        compiled_model.fit(
+        history = compiled_model.fit(
             X,
             y,
             validation_split=validation_size,
@@ -167,15 +170,24 @@ def main():
         )
 
         # Save the model only if performance is better than the previous one.
-        # TODO ADD PERFORMANCE CHECK WITH JSON FILE to make sure nan values are not there in the model data ; CAN ALSO CHECK PERFORAMNCE WITH JSON FILE INSIDE GITHUB PRIORITY after 9h05 pm
-        # TODO CREATE ENDPOINT FOR PREDICTION DATA (MODELS ARE READY AND RETRAINED)
-        # TODO Check the endpoints to ensure the data is consistent SHOULD BE FIXED to check at 9h05
-        # TODO Re-enable the cache by caching info through github action :) SHOULD BE FIXED to check at 9h05
-        compiled_model.save(f"../output_dir_models/{garage}_model.h5")
-        scaler_filename = f"../output_dir_models/{garage}_min_max_scaler.h5"
-        joblib.dump(sc, scaler_filename)
+        # TODO Priority : Evaluate training of the models !
+        # TODO Priority : cached data does not trigger at 00 as asked ==> Try 6min earlier.
+        with open("./perfs.json", "rb") as f:
+            perfs_model_dict = json.load(f)
 
-        print(f"Model and scaler for garage {garage} have been saved successfully.")
+        model_perf_not_nan = (
+            history.history["loss"][-1] != np.nan and history.history["val_loss"][-1] != np.nan
+        )
+        if model_perf_not_nan and history.history["loss"][-1] <= perfs_model_dict[garage]:
+            compiled_model.save(f"../output_dir_models/{garage}_model.h5")
+            scaler_filename = f"../output_dir_models/{garage}_min_max_scaler.h5"
+            joblib.dump(sc, scaler_filename)
+            perfs_model_dict[garage] = history.history["loss"][-1]
+
+            with open("./perfs.json", "w") as f:
+                json.dump(perfs_model_dict, f, indent=4)
+
+            print(f"Model and scaler for garage {garage} have been saved successfully.")
 
 
 if __name__ == "__main__":
