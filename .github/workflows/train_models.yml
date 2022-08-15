@@ -1,10 +1,8 @@
 name: "garages_training"
 
 on:
-  push:
-    branches: [ master ]
-#  schedule:
-#  - cron: "30 2 * * 3"
+  schedule:
+  - cron: "30 2 * * 3"
 
 
 env:
