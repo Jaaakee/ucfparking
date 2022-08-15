@@ -5,6 +5,11 @@ on:
     branches: [ master ]
 #  schedule:
 #  - cron: "30 2 * * 3"
+
+
+env:
+  DB_HOST: ${{ secrets.DB_HOST }}
+
 jobs:
   training:
     runs-on: ubuntu-latest
