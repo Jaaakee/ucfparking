@@ -73,12 +73,9 @@ async def get_predictions():
 
 
 @app.get("/")
-async def get_last_data(cache: bool = True):
+async def get_last_data():
     """Get the last data row from the database."""
-    if not cache:
-        content = get_data("last")
-    else:
-        content = json.load(open("./api/content/last.json"))
+    content = get_data("last")
 
     return Response(
         content=json.dumps(
@@ -94,12 +91,9 @@ async def get_last_data(cache: bool = True):
 
 
 @app.get("/stats")
-async def get_stats(cache: bool = True):
+async def get_stats():
     """Get the stats from the database : total amount of rows and last data entry."""
-    if not cache:
-        content = get_data("stats")
-    else:
-        content = json.load(open("./api/content/stats.json"))
+    content = get_data("stats")
 
     return Response(
         content=json.dumps(
@@ -115,12 +109,9 @@ async def get_stats(cache: bool = True):
 
 
 @app.get("/lastday")
-async def get_lastday(cache: bool = True):
+async def get_lastday():
     """Get the last day data from the database."""
-    if not cache:
-        content = get_data("lastday")
-    else:
-        content = json.load(open("./api/content/lastday.json"))
+    content = get_data("lastday")
 
     return Response(
         content=json.dumps(
@@ -136,12 +127,9 @@ async def get_lastday(cache: bool = True):
 
 
 @app.get("/lastmonth")
-async def get_lastmonth(cache: bool = True):
+async def get_lastmonth():
     """Get the last month data from the database."""
-    if not cache:
-        content = get_data("lastmonth")
-    else:
-        content = json.load(open("./api/content/lastmonth.json"))
+    content = get_data("lastmonth")
 
     return Response(
         content=json.dumps(
@@ -157,12 +145,9 @@ async def get_lastmonth(cache: bool = True):
 
 
 @app.get("/lastyear")
-async def get_lastyear(cache: bool = True):
+async def get_lastyear():
     """Get the last year data from the database."""
-    if not cache:
-        content = get_data("lastyear")
-    else:
-        content = json.load(open("./api/content/lastyear.json"))
+    content = get_data("lastyear")
 
     return Response(
         content=json.dumps(
@@ -178,12 +163,9 @@ async def get_lastyear(cache: bool = True):
 
 
 @app.get("/all")
-async def get_alldb_data(cache: bool = True):
+async def get_alldb_data():
     """Get all the data from the database."""
-    if not cache:
-        content = get_data("all")
-    else:
-        content = json.load(open("./api/content/all.json"))
+    content = get_data("all")
 
     return Response(
         content=json.dumps(
@@ -199,12 +181,9 @@ async def get_alldb_data(cache: bool = True):
 
 
 @app.get("/today")
-async def get_todaydb_data(cache: bool = True):
+async def get_todaydb_data():
     """Get the data from the database for the current day."""
-    if not cache:
-        content = get_data("today")
-    else:
-        content = json.load(open("./api/content/today.json"))
+    content = get_data("today")
 
     return Response(
         content=json.dumps(
@@ -220,12 +199,9 @@ async def get_todaydb_data(cache: bool = True):
 
 
 @app.get("/week")
-async def get_weekly_data(cache: bool = True):
+async def get_weekly_data():
     """Get the data from the database for the last week."""
-    if not cache:
-        content = get_data("week")
-    else:
-        content = json.load(open("./api/content/week.json"))
+    content = get_data("week")
 
     return Response(
         content=json.dumps(
