@@ -1,37 +1,12 @@
 
 # UCF Parking
 
-This project makes it easy to view parking garage space availability on the University of Central Florida's main campus. This project contains a web scraper and REST API written in Python and a site written in Next.js with Tailwind CSS ([ucfparking.com](https://ucfparking.com)). This project aims to relieve the stress of finding a parking spot on campus and assist students with creating a plan before arriving on campus.
+This project makes it easy to view parking garage space availability on the University of Central Florida's main campus. This project contains a web scraper and REST API written in Python and a [website](https://ucfparking.com) written in Next.js with Tailwind CSS. This project aims to relieve the stress of finding a parking spot on campus and assist students with creating a plan before arriving on site.
 ## Features
 - 🚀 Hourly parking data scraped since March 21st, 2021!
 - 🖥️ Public API with access to a bunch of methods. [Learn more!](#api-routes)
 - 📦 Out of the box included dashboard with various customizable sorting and viewing options.
 - 📱 Mobile support.
-## Installation
-Before running, there are a few environment variables in this project that I use to deploy easily:
-- `DB_HOST` - your database's host address
-- `DB_USER` - your database's user name
-- `DB_PASS` - your database's user pass
-- `DB_NAME` - your database's name
-- `DB_PORT` - your database's port . . . *usually 3306!*
-- `SENTRY_URL` - [very helpful debugging tool](https://sentry.io/)
-
-With this current project setup, a MySQL database is required. I use a plan provided by [ClearDB MySQL on Heroku](https://devcenter.heroku.com/articles/cleardb).
-
-Once you've set that all up, you can begin to start scraping data and setup your own API!
-
-To run the web scraping script, run the following command inside the project:
-```bash
-  python api/deploy/main.py
-```
-
-To get the API to work, take a look at the [Procfile](https://github.com/JakeValenzuela/ucfparking/blob/master/Procfile) and how we use [Uvicorn](https://www.uvicorn.org/) to run it.
-## Deployment
-The API, data scraper, and database currently run on a dyno on Heroku. The Next.js site is deployed on Vercel.
-
-This project uses [Advanced Python Scheduler](https://apscheduler.readthedocs.io/) to run the data scrapper every sharp hour (:00).
-
-The Heroku add-on's that are used include: [ClearDB MySQL](https://devcenter.heroku.com/articles/cleardb) and [New Relic's APM](https://newrelic.com/products/application-monitoring).
 ## API Routes
 Please note that these routes are for [ucfparking.com](https://ucf-parking-data.herokuapp.com). Please note that each of these routes returns a page of JSON. The timezone in this project is UTC. Queries with an asterik (*) next to the description may take a bit of time depending on the amount of data in the database.
 
@@ -67,3 +42,44 @@ Please note that these routes are for [ucfparking.com](https://ucf-parking-data.
 
 #### Get statistics about the data.
 [`/stats`](https://api.ucfparking.com/stats)
+
+#### * Get garage space availability predictions for the next 24 hours.
+[`/predict_next_day`](https://api.ucfparking.com/predict_next_day)
+## Local Installation
+Before running, there are a few environment variables to setup in this project, used for security reasons:
+- `DB_HOST` - your database's host address
+- `DB_USER` - your database's user name
+- `DB_PASS` - your database's user password
+- `DB_NAME` - your database's name
+- `DB_PORT` - your database's port . . . *usually 3306!*
+- `SENTRY_URL` - [very helpful debugging tool](https://sentry.io/)
+
+With this current project setup, a MySQL database is required to store the data. We use a plan provided by [ClearDB MySQL on Heroku](https://devcenter.heroku.com/articles/cleardb).
+
+Dependencies need to be installed on your environment by running:
+```bash
+  pip install -r requirements.txt
+```
+
+Once you've set that all up, you can begin to start scraping data and setup your own API!
+
+To run the web scraping script, run the following command inside the project:
+```bash
+  python api/deploy/main.py
+```
+
+To run the API locally, run the following command inside the project:
+```bash
+uvicorn api.api:app --reload --port 5000
+```
+Then open [localhost](http://127.0.0.1:5000) to see your application running.
+
+## Deployment
+The API, data scraper, and database currently run on a dyno on Heroku. The Next.js site is deployed on Vercel.
+
+This project uses [Advanced Python Scheduler](https://apscheduler.readthedocs.io/) to run the data scrapper every sharp hour (:00).
+
+The Heroku add-on's that are used include: [ClearDB MySQL](https://devcenter.heroku.com/articles/cleardb) and [New Relic's APM](https://newrelic.com/products/application-monitoring).
+
+To get the API to work, take a look at the [Procfile](https://github.com/JakeValenzuela/ucfparking/blob/master/Procfile) and how we use [Uvicorn](https://www.uvicorn.org/) to run it.
+
