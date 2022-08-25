@@ -1,4 +1,4 @@
-"""Predict the next 3 days of available spaces for all garages."""
+"""Predict the next day of available spaces for all garages."""
 from datetime import timedelta
 
 import joblib
@@ -44,8 +44,8 @@ def inverse_transform(forecasts, scaler):
     return inverted
 
 
-def predict_next_three_days(model, scaler, data):
-    """Predict the next three days."""
+def predict_next_days(model, scaler, data):
+    """Predict the next days of data."""
     predictions = []
     for index in range(number_of_hours_to_predict // n_steps_out):
         if index == 0:
@@ -159,7 +159,7 @@ def main(prediction_showing):
         model = load_model(f"api/predictions/output_dir_models/{garage}_model.h5")
         scaler = joblib.load(f"api/predictions/output_dir_models/{garage}_min_max_scaler.h5")
 
-        predictions = predict_next_three_days(
+        predictions = predict_next_days(
             model, scaler, garage_time_series_spaces_available_processed
         )
 

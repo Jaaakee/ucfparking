@@ -8,7 +8,7 @@ sched = BlockingScheduler()
 
 @sched.scheduled_job("cron", hour="*")
 def timed_job():
-    """Run the main function every hour."""
+    """Run, the main function and fill missing dates in the garages data if any, every hour."""
     main()
     fill_missing_dates_main()
 

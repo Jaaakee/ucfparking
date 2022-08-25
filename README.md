@@ -7,6 +7,7 @@ This project makes it easy to view parking garage space availability on the Univ
 - 🖥️ Public API with access to a bunch of methods. [Learn more!](#api-routes)
 - 📦 Out of the box included dashboard with various customizable sorting and viewing options.
 - 📱 Mobile support.
+- 🔥 Linting support with pre-commit hooks.
 ## API Routes
 Please note that these routes are for [ucfparking.com](https://ucf-parking-data.herokuapp.com). Please note that each of these routes returns a page of JSON. The timezone in this project is UTC. Queries with an asterik (*) next to the description may take a bit of time depending on the amount of data in the database.
 

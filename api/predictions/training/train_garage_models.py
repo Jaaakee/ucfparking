@@ -171,7 +171,7 @@ def main():
 
         # Save the model only if performance is better than the previous one.
         # TODO Priority : Evaluate training of the models !
-        # TODO Priority : cached data does not trigger at 00 as asked ==> Try 6min earlier.
+        # TODO Priority : Optimize deployment - memory is too big --> check requirements.txt and trained models...
         with open("./perfs.json", "rb") as f:
             perfs_model_dict = json.load(f)
 
