@@ -1,0 +1,7 @@
+README.md
+setup.cfg
+setup.py
+UCF_parking_API.egg-info/PKG-INFO
+UCF_parking_API.egg-info/SOURCES.txt
+UCF_parking_API.egg-info/dependency_links.txt
+UCF_parking_API.egg-info/top_level.txt
